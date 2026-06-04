@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Ads Research Report — Alpha Lewis Signs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #1B2B4B;
+      --navy-light: #243860;
+      --navy-pale:  #EEF1F7;
+      --gold:       #C9A84C;
+      --white:      #FFFFFF;
+      --gray-50:    #F9FAFB;
+      --gray-100:   #F3F4F6;
+      --gray-300:   #D1D5DB;
+      --gray-500:   #6B7280;
+      --gray-700:   #374151;
+      --gray-900:   #111827;
+      --green:      #16A34A;
+      --green-bg:   #DCFCE7;
+      --amber:      #D97706;
+      --amber-bg:   #FEF3C7;
+      --red:        #DC2626;
+      --red-bg:     #FEE2E2;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-900);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 48px 0 40px;
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .header-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    header .subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 28px;
+    }
+    .header-meta {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .meta-pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+    }
+    .meta-pill strong { color: var(--white); }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* ── SUMMARY CARDS ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .summary-card {
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+    .summary-card .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 6px;
+    }
+    .summary-card .value {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .summary-card .note {
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+    .summary-card.highlight {
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+    .summary-card.highlight .label { color: rgba(255,255,255,0.6); }
+    .summary-card.highlight .value { color: var(--gold); }
+    .summary-card.highlight .note  { color: rgba(255,255,255,0.55); }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 52px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .section-number {
+      width: 32px; height: 32px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .section-intro {
+      font-size: 14px;
+      color: var(--gray-500);
+      margin-bottom: 20px;
+      padding-left: 44px;
+      line-height: 1.7;
+    }
+
+    /* ── EXPLAINER BOX ── */
+    .explainer {
+      background: var(--navy-pale);
+      border-left: 4px solid var(--navy);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 13.5px;
+      color: var(--navy-light);
+      line-height: 1.7;
+    }
+    .explainer strong { color: var(--navy); }
+
+    /* ── CALLOUT ── */
+    .callout {
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 13.5px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      line-height: 1.7;
+    }
+    .callout.green  { background: var(--green-bg);  color: #14532D; border: 1px solid #86EFAC; }
+    .callout.amber  { background: var(--amber-bg);  color: #78350F; border: 1px solid #FCD34D; }
+    .callout.red    { background: var(--red-bg);    color: #7F1D1D; border: 1px solid #FCA5A5; }
+    .callout-icon   { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── TABLES ── */
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--gray-300);
+    }
+    thead { background: var(--navy); color: var(--white); }
+    thead th {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    tbody tr { border-bottom: 1px solid var(--gray-100); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--gray-50); }
+    tbody td { padding: 12px 16px; color: var(--gray-700); vertical-align: middle; }
+    tbody td:first-child { font-weight: 500; color: var(--gray-900); }
+    .td-number { text-align: right; font-variant-numeric: tabular-nums; }
+
+    /* ── BADGES ── */
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-green  { background: var(--green-bg);  color: var(--green); }
+    .badge-amber  { background: var(--amber-bg);  color: var(--amber); }
+    .badge-red    { background: var(--red-bg);    color: var(--red); }
+    .badge-navy   { background: var(--navy-pale); color: var(--navy); }
+
+    /* ── OPPORTUNITY BAR ── */
+    .opp-bar-wrap { margin-bottom: 8px; }
+    .opp-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .opp-bar-label .kw { color: var(--gray-900); }
+    .opp-bar-label .vol { color: var(--gray-500); }
+    .opp-bar-bg {
+      height: 8px;
+      background: var(--gray-100);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .opp-bar-fill {
+      height: 100%;
+      background: var(--navy);
+      border-radius: 4px;
+    }
+
+    /* ── BUDGET RECOMMENDATION ── */
+    .budget-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .budget-card {
+      background: var(--white);
+      border: 2px solid var(--gray-300);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    .budget-card.recommended {
+      border-color: var(--navy);
+    }
+    .budget-card .rec-tag {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 20px;
+    }
+    .budget-card .tier { font-size: 12px; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .budget-card .amount { font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .budget-card .amount small { font-size: 14px; font-weight: 400; }
+    .budget-card .clicks { font-size: 13px; color: var(--gray-500); }
+
+    /* ── COMPETITOR CARD ── */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .comp-card {
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .comp-card .comp-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .comp-card .comp-domain {
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-bottom: 12px;
+    }
+    .comp-stat { display: flex; justify-content: space-between; font-size: 13px; padding: 5px 0; border-bottom: 1px solid var(--gray-100); }
+    .comp-stat:last-child { border-bottom: none; }
+    .comp-stat .stat-label { color: var(--gray-500); }
+    .comp-stat .stat-val   { font-weight: 600; color: var(--gray-900); }
+
+    /* ── WHAT HAPPENS NEXT ── */
+    .steps { list-style: none; counter-reset: steps; }
+    .steps li {
+      counter-increment: steps;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+    .steps li::before {
+      content: counter(steps);
+      width: 28px; height: 28px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .steps li .step-content h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+    .steps li .step-content p  { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+    }
+    footer strong { color: rgba(255,255,255,0.85); }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid var(--gray-300); margin: 40px 0; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 24px; }
+      .summary-card .value { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-label">Google Ads Research Report</div>
+    <h1>Alpha Lewis Signs</h1>
+    <p class="subtitle">Keyword Research, Competitive Landscape &amp; Budget Recommendation — Australia</p>
+    <div class="header-meta">
+      <div class="meta-pill">Prepared by <strong>Josette Bartolome</strong></div>
+      <div class="meta-pill">Market: <strong>Australia (National)</strong></div>
+      <div class="meta-pill">Date: <strong>June 2026</strong></div>
+      <div class="meta-pill">Products: <strong>Signee™ Range</strong></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- SUMMARY CARDS -->
+  <div class="summary-grid" style="margin-top:36px;">
+    <div class="summary-card highlight">
+      <div class="label">Recommended Budget</div>
+      <div class="value">$1,500–$2,000</div>
+      <div class="note">AUD per month (ad spend only)</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Avg. Cost Per Click</div>
+      <div class="value">~$4.00</div>
+      <div class="note">AUD across priority keywords</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Paid Competitors (AU)</div>
+      <div class="value">0</div>
+      <div class="note">No one is running Google Ads right now</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Top Keyword Volume</div>
+      <div class="value">5,400</div>
+      <div class="note">Monthly searches for "corflute signs"</div>
+    </div>
+  </div>
+
+
+  <!-- SECTION 1: WHAT IS GOOGLE ADS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <h2>What is Google Ads and Why Does it Matter?</h2>
+    </div>
+    <div class="section-intro">
+      A quick plain-English overview so we're all on the same page.
+    </div>
+    <div class="explainer">
+      <strong>Google Ads</strong> puts your business at the top of Google's search results when someone types in a keyword related to your products. For example, when a cafe owner in Melbourne searches <em>"a frame sign for cafe"</em>, your ad can appear at the very top of the page — above all other businesses — before they even see organic (non-paid) results.
+      <br><br>
+      You only pay when someone <strong>clicks</strong> on your ad. There is no charge for impressions (people seeing it). This is why it's called <strong>Pay-Per-Click (PPC)</strong> advertising.
+      <br><br>
+      The <strong>ad spend</strong> (the amount that goes to Google) is completely separate from the management fee. You have full visibility and control over your budget at all times — it's charged directly to you by Google.
+    </div>
+  </div>
+
+
+  <!-- SECTION 2: KEYWORD RESEARCH -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <h2>Keyword Research</h2>
+    </div>
+    <div class="section-intro">
+      These are the actual words and phrases Australians type into Google when looking for products like yours. This data comes directly from Google's own advertising platform.
+    </div>
+
+    <div class="explainer">
+      <strong>Monthly Searches</strong> tells us how many people search for that term each month in Australia.
+      <strong>Cost Per Click (CPC)</strong> is the estimated amount you pay each time someone clicks your ad for that keyword.
+      <strong>Competition</strong> tells us how many other businesses are also bidding on that keyword — higher competition means the keyword is more valuable, but also potentially more expensive.
+    </div>
+
+    <div class="callout green">
+      <div class="callout-icon">✅</div>
+      <div><strong>Good news:</strong> Many of the highest-volume keywords have low to medium competition, which means Alpha Lewis Signs can show up prominently without needing a massive budget.</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Monthly Searches (AU)</th>
+            <th>Cost Per Click (AUD)</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>a frame sign</td>
+            <td class="td-number">2,400</td>
+            <td class="td-number">$3.25</td>
+            <td><span class="badge badge-green">High</span></td>
+          </tr>
+          <tr>
+            <td>business signage</td>
+            <td class="td-number">1,600</td>
+            <td class="td-number">$4.92</td>
+            <td><span class="badge badge-green">High</span></td>
+          </tr>
+          <tr>
+            <td>custom signage</td>
+            <td class="td-number">1,600</td>
+            <td class="td-number">$4.01</td>
+            <td><span class="badge badge-green">High</span></td>
+          </tr>
+          <tr>
+            <td>acrylic signs</td>
+            <td class="td-number">1,600</td>
+            <td class="td-number">$3.55</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+          </tr>
+          <tr>
+            <td>cafe signs</td>
+            <td class="td-number">880</td>
+            <td class="td-number">$2.28</td>
+            <td><span class="badge badge-green">High</span></td>
+          </tr>
+          <tr>
+            <td>real estate signs</td>
+            <td class="td-number">880</td>
+            <td class="td-number">$6.24</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+          </tr>
+          <tr>
+            <td>sandwich board signs</td>
+            <td class="td-number">720</td>
+            <td class="td-number">$2.94</td>
+            <td><span class="badge badge-green">High</span></td>
+          </tr>
+          <tr>
+            <td>outdoor signs for business</td>
+            <td class="td-number">590</td>
+            <td class="td-number">$5.66</td>
+            <td><span class="badge badge-green">High</span></td>
+          </tr>
+          <tr>
+            <td>illuminated signs</td>
+            <td class="td-number">390</td>
+            <td class="td-number">$6.05</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+          </tr>
+          <tr>
+            <td>chalkboard sign</td>
+            <td class="td-number">390</td>
+            <td class="td-number">$0.51</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+          </tr>
+          <tr>
+            <td>retail signs</td>
+            <td class="td-number">320</td>
+            <td class="td-number">$3.88</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+          </tr>
+          <tr>
+            <td>restaurant signage</td>
+            <td class="td-number">210</td>
+            <td class="td-number">$5.09</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+          </tr>
+          <tr>
+            <td>custom business signs</td>
+            <td class="td-number">210</td>
+            <td class="td-number">$4.50</td>
+            <td><span class="badge badge-green">High</span></td>
+          </tr>
+          <tr>
+            <td>custom a frame sign</td>
+            <td class="td-number">140</td>
+            <td class="td-number">$4.63</td>
+            <td><span class="badge badge-green">High</span></td>
+          </tr>
+          <tr>
+            <td>custom signage australia</td>
+            <td class="td-number">140</td>
+            <td class="td-number">$3.02</td>
+            <td><span class="badge badge-green">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:12px;color:var(--gray-500);margin-top:10px;">Source: Google Ads Keyword Planner via DataForSEO. Data reflects average monthly searches in Australia.</p>
+
+    <br>
+    <div class="explainer">
+      <strong>What does this mean for Alpha Lewis Signs?</strong> There are thousands of Australians every month actively searching for the exact products you sell. The keywords "a frame sign," "business signage," "cafe signs," and "sandwich board signs" are the most directly relevant to your Signee™ range and represent your highest-priority targets.
+    </div>
+  </div>
+
+
+  <!-- SECTION 3: KEYWORD OPPORTUNITY CHART -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <h2>Search Volume at a Glance</h2>
+    </div>
+    <div class="section-intro">
+      How many Australians are searching for each keyword every month.
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--gray-300);border-radius:10px;padding:24px;">
+      <div class="opp-bar-wrap">
+        <div class="opp-bar-label"><span class="kw">a frame sign</span><span class="vol">2,400/mo</span></div>
+        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:44%"></div></div>
+      </div>
+      <div class="opp-bar-wrap">
+        <div class="opp-bar-label"><span class="kw">business signage</span><span class="vol">1,600/mo</span></div>
+        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:29%"></div></div>
+      </div>
+      <div class="opp-bar-wrap">
+        <div class="opp-bar-label"><span class="kw">custom signage</span><span class="vol">1,600/mo</span></div>
+        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:29%"></div></div>
+      </div>
+      <div class="opp-bar-wrap">
+        <div class="opp-bar-label"><span class="kw">acrylic signs</span><span class="vol">1,600/mo</span></div>
+        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:29%"></div></div>
+      </div>
+      <div class="opp-bar-wrap">
+        <div class="opp-bar-label"><span class="kw">cafe signs</span><span class="vol">880/mo</span></div>
+        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:16%"></div></div>
+      </div>
+      <div class="opp-bar-wrap">
+        <div class="opp-bar-label"><span class="kw">real estate signs</span><span class="vol">880/mo</span></div>
+        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:16%"></div></div>
+      </div>
+      <div class="opp-bar-wrap">
+        <div class="opp-bar-label"><span class="kw">sandwich board signs</span><span class="vol">720/mo</span></div>
+        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:13%"></div></div>
+      </div>
+      <div class="opp-bar-wrap">
+        <div class="opp-bar-label"><span class="kw">outdoor signs for business</span><span class="vol">590/mo</span></div>
+        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:11%"></div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SECTION 4: COMPETITOR ANALYSIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <h2>Competitor Analysis</h2>
+    </div>
+    <div class="section-intro">
+      We looked at three businesses you identified as competitors, plus the companies that are currently dominating Google search results in Australia.
+    </div>
+
+    <h3 style="font-size:15px;font-weight:600;color:var(--navy);margin-bottom:12px;">Competitors You Named</h3>
+
+    <div class="callout amber">
+      <div class="callout-icon">⚠️</div>
+      <div>
+        <strong>Important finding:</strong> The three businesses you named (George and Willy, Piece of Sign, Made of Tomorrow) have <strong>no Google Ads presence in Australia and no organic rankings in the Australian market.</strong> They are not actively targeting Australian customers through Google, which means they cannot be used as a direct benchmark for ad spend. The good news is they are not competing with you in Australia.
+      </div>
+    </div>
+
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="comp-name">George and Willy</div>
+        <div class="comp-domain">georgeandwilly.com</div>
+        <div class="comp-stat"><span class="stat-label">Google Ads in AU</span><span class="stat-val" style="color:var(--red)">None</span></div>
+        <div class="comp-stat"><span class="stat-label">AU Organic Rankings</span><span class="stat-val" style="color:var(--red)">None</span></div>
+        <div class="comp-stat"><span class="stat-label">AU Market Presence</span><span class="stat-val"><span class="badge badge-red">Not Active</span></span></div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-name">Piece of Sign</div>
+        <div class="comp-domain">pieceofsign.com</div>
+        <div class="comp-stat"><span class="stat-label">Google Ads in AU</span><span class="stat-val" style="color:var(--red)">None</span></div>
+        <div class="comp-stat"><span class="stat-label">AU Organic Rankings</span><span class="stat-val" style="color:var(--red)">None</span></div>
+        <div class="comp-stat"><span class="stat-label">AU Market Presence</span><span class="stat-val"><span class="badge badge-red">Not Active</span></span></div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-name">Made of Tomorrow</div>
+        <div class="comp-domain">madeoftomorrow.com</div>
+        <div class="comp-stat"><span class="stat-label">Google Ads in AU</span><span class="stat-val" style="color:var(--red)">None</span></div>
+        <div class="comp-stat"><span class="stat-label">AU Organic Rankings</span><span class="stat-val" style="color:var(--red)">None</span></div>
+        <div class="comp-stat"><span class="stat-label">AU Market Presence</span><span class="stat-val"><span class="badge badge-red">Not Active</span></span></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:600;color:var(--navy);margin:24px 0 12px;">Who is Actually Competing in Australia Right Now?</h3>
+
+    <div class="explainer">
+      These are the businesses currently ranking on the first page of Google in Australia for your key search terms. They dominate <strong>organic</strong> (free, non-paid) results — but importantly, <strong>none of them are currently running Google Ads</strong> on these terms. This creates a significant opportunity.
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Ranking For</th>
+            <th>Position</th>
+            <th>Running Google Ads?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>easysigns.com.au</td>
+            <td>"a frame sign", "business signage"</td>
+            <td class="td-number">#1</td>
+            <td><span class="badge badge-red">No</span></td>
+          </tr>
+          <tr>
+            <td>vistaprint.com.au</td>
+            <td>"a frame sign", "custom signage"</td>
+            <td class="td-number">#1–2</td>
+            <td><span class="badge badge-red">No</span></td>
+          </tr>
+          <tr>
+            <td>signarama.com.au</td>
+            <td>"a frame sign"</td>
+            <td class="td-number">#3</td>
+            <td><span class="badge badge-red">No</span></td>
+          </tr>
+          <tr>
+            <td>vividads.com.au</td>
+            <td>"business signage", "cafe signs"</td>
+            <td class="td-number">#2–3</td>
+            <td><span class="badge badge-red">No</span></td>
+          </tr>
+          <tr>
+            <td>newsigns.com.au</td>
+            <td>"custom signage"</td>
+            <td class="td-number">#2</td>
+            <td><span class="badge badge-red">No</span></td>
+          </tr>
+          <tr>
+            <td>signcafe.com.au</td>
+            <td>"cafe signs"</td>
+            <td class="td-number">#1</td>
+            <td><span class="badge badge-red">No</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+    <div class="callout green">
+      <div class="callout-icon">🚀</div>
+      <div>
+        <strong>Major opportunity:</strong> We checked Google's live search results and found <strong>zero paid ads</strong> running on "a frame sign," "business signage," "custom signage," and "cafe signs" in Australia. This is rare. It means Alpha Lewis Signs can appear at the very top of Google for these searches without fighting against other advertisers. Lower competition typically means lower cost per click and faster results.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SECTION 5: BUDGET RECOMMENDATION -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <h2>Recommended Ad Spend</h2>
+    </div>
+    <div class="section-intro">
+      Based on our keyword research and competitive analysis, here is our recommendation for your starting Google Ads budget.
+    </div>
+
+    <div class="explainer">
+      <strong>How we calculated this:</strong> We know the average cost per click (CPC) for your priority keywords is approximately $4.00 AUD. To generate meaningful results — enough clicks to learn what's working and start producing enquiries — we need a minimum of 300 clicks per month. The recommended budget allows for 375 to 500 clicks per month, giving the campaign enough data to optimise quickly.
+    </div>
+
+    <div class="budget-grid">
+      <div class="budget-card">
+        <div class="tier">Minimum Viable</div>
+        <div class="amount">$1,200 <small>AUD/mo</small></div>
+        <div class="clicks">~300 clicks/month</div>
+        <br>
+        <p style="font-size:12px;color:var(--gray-500)">Enough to start and gather initial data, but limited room to test multiple keywords.</p>
+      </div>
+      <div class="budget-card recommended">
+        <div class="rec-tag">Recommended</div>
+        <div class="tier">Recommended Start</div>
+        <div class="amount">$1,500–$2,000 <small>AUD/mo</small></div>
+        <div class="clicks">~375–500 clicks/month</div>
+        <br>
+        <p style="font-size:12px;color:var(--gray-500)">Gives us the volume to test, learn, and optimise across multiple keywords within the first 4–6 weeks.</p>
+      </div>
+      <div class="budget-card">
+        <div class="tier">Aggressive Growth</div>
+        <div class="amount">$2,500 <small>AUD/mo</small></div>
+        <div class="clicks">~625 clicks/month</div>
+        <br>
+        <p style="font-size:12px;color:var(--gray-500)">Best for fast market penetration. Captures a larger share of searches and scales faster.</p>
+      </div>
+    </div>
+
+    <div class="callout amber">
+      <div class="callout-icon">💡</div>
+      <div>
+        <strong>Note on real CPCs:</strong> Because there are currently no competitors running ads on these keywords, the actual cost per click may come in <strong>lower</strong> than the $4.00 benchmark. This could mean your budget goes further than projected — more clicks for the same spend. We will confirm actual CPCs once the campaign goes live.
+      </div>
+    </div>
+
+    <div class="explainer">
+      <strong>This is the ad spend only.</strong> It is paid directly to Google and is entirely separate from the management fee. You can increase, decrease, or pause your budget at any time.
+    </div>
+  </div>
+
+
+  <!-- SECTION 6: WHAT HAPPENS NEXT -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <h2>What Happens Next</h2>
+    </div>
+    <div class="section-intro">
+      Once you confirm the budget, here is what the setup process looks like.
+    </div>
+
+    <ul class="steps">
+      <li>
+        <div class="step-content">
+          <h4>Budget Confirmation</h4>
+          <p>You confirm your preferred monthly ad spend from the options above. This is the amount that will go directly to Google.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <h4>Google Ads Account Setup</h4>
+          <p>We set up your Google Ads account, connect it to your website, and install conversion tracking so we can see exactly which clicks are turning into enquiries or sales.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <h4>Campaign Build</h4>
+          <p>We build your campaigns using the keywords from this research, write the ad copy, and set up targeting for all of Australia. Before anything goes live, you will have the opportunity to review and approve.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <h4>Go Live</h4>
+          <p>Your ads go live. Within the first 48 hours you will start appearing at the top of Google for your target keywords.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <h4>Weekly Reporting</h4>
+          <p>You receive a weekly summary of how your ads are performing — clicks, spend, and any leads generated. After 4 to 6 weeks, we will have enough data to make informed decisions about what to scale and what to adjust.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <hr class="divider"/>
+
+  <p style="font-size:13px;color:var(--gray-500);text-align:center;line-height:1.8;">
+    This report was prepared based on live data from Google Ads Keyword Planner and Google Search Results as of June 2026.<br>
+    All figures are in Australian Dollars (AUD). Search volumes and CPCs are estimates and may vary.
+  </p>
+
+</main>
+
+<footer>
+  <strong>Alpha Lewis Signs — Google Ads Research Report</strong><br>
+  Prepared by Josette Bartolome &nbsp;·&nbsp; josette.b@webprofits.com.au &nbsp;·&nbsp; June 2026
+</footer>
+
+</body>
+</html>
