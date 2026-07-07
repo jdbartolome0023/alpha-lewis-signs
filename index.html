@@ -1,940 +1,507 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Google Ads Research Report: Alpha Lewis Signs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<title>Signee: Google Ads Research Report</title>
+<style>
+  @font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(data:font/woff2;base64,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) format('woff2');
+  }
+  @font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(data:font/woff2;base64,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) format('woff2');
+  }
 
-    :root {
-      --navy:       #1B2B4B;
-      --navy-light: #243860;
-      --navy-pale:  #EEF1F7;
-      --gold:       #C9A84C;
-      --white:      #FFFFFF;
-      --gray-50:    #F9FAFB;
-      --gray-100:   #F3F4F6;
-      --gray-300:   #D1D5DB;
-      --gray-500:   #6B7280;
-      --gray-700:   #374151;
-      --gray-900:   #111827;
-      --green:      #16A34A;
-      --green-bg:   #DCFCE7;
-      --amber:      #D97706;
-      --amber-bg:   #FEF3C7;
-      --red:        #DC2626;
-      --red-bg:     #FEE2E2;
-    }
+  :root {
+    --paper: #FFFFFF;
+    --paper-raised: #F2F7F6;
+    --ink: #0E1B4D;
+    --ink-soft: #545E82;
+    --line: rgba(14, 27, 77, 0.14);
+    --accent: #20E6C1;
+    --accent-ink: #0E7965;
+    --accent-soft: rgba(32, 230, 193, 0.14);
+    --accent-2: #0E1B4D;
+    --accent-2-soft: rgba(14, 27, 77, 0.08);
+    --good: #0E7965;
+    --good-soft: rgba(14, 121, 101, 0.12);
+    --shadow: 0 1px 3px rgba(14,27,77,0.08);
+  }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--gray-50);
-      color: var(--gray-900);
-      line-height: 1.6;
-    }
+  :root[data-theme="dark"] {
+    --paper: #0E1B4D;
+    --paper-raised: #16225C;
+    --ink: #F3F6F5;
+    --ink-soft: #AEB7DC;
+    --line: rgba(255, 255, 255, 0.16);
+    --accent: #20E6C1;
+    --accent-ink: #6FF0D9;
+    --accent-soft: rgba(32, 230, 193, 0.16);
+    --accent-2: #20E6C1;
+    --accent-2-soft: rgba(32, 230, 193, 0.10);
+    --good: #4FE0C4;
+    --good-soft: rgba(79, 224, 196, 0.14);
+    --shadow: none;
+  }
 
-    /* ── HEADER ── */
-    header {
-      background: var(--navy);
-      color: var(--white);
-      padding: 48px 0 40px;
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0E1B4D;
+      --paper-raised: #16225C;
+      --ink: #F3F6F5;
+      --ink-soft: #AEB7DC;
+      --line: rgba(255, 255, 255, 0.16);
+      --accent: #20E6C1;
+      --accent-ink: #6FF0D9;
+      --accent-soft: rgba(32, 230, 193, 0.16);
+      --accent-2: #20E6C1;
+      --accent-2-soft: rgba(32, 230, 193, 0.10);
+      --good: #4FE0C4;
+      --good-soft: rgba(79, 224, 196, 0.14);
+      --shadow: none;
     }
-    .header-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .header-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-    header h1 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    header .subtitle {
-      font-size: 15px;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 28px;
-    }
-    .header-meta {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .meta-pill {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 6px;
-      padding: 6px 14px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.85);
-    }
-    .meta-pill strong { color: var(--white); }
+  }
 
-    /* ── LAYOUT ── */
-    main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-    }
+  * { box-sizing: border-box; }
 
-    /* ── SUMMARY CARDS ── */
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    .summary-card {
-      background: var(--white);
-      border: 1px solid var(--gray-300);
-      border-radius: 10px;
-      padding: 20px 22px;
-    }
-    .summary-card .label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--gray-500);
-      margin-bottom: 6px;
-    }
-    .summary-card .value {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .summary-card .note {
-      font-size: 12px;
-      color: var(--gray-500);
-    }
-    .summary-card.highlight {
-      background: var(--navy);
-      border-color: var(--navy);
-    }
-    .summary-card.highlight .label { color: rgba(255,255,255,0.6); }
-    .summary-card.highlight .value { color: var(--gold); }
-    .summary-card.highlight .note  { color: rgba(255,255,255,0.55); }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 18px;
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    /* ── SECTIONS ── */
-    .section { margin-bottom: 52px; }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .section-number {
-      width: 32px; height: 32px;
-      background: var(--navy);
-      color: var(--white);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 700;
-      flex-shrink: 0;
-    }
-    .section h2 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .section-intro {
-      font-size: 14px;
-      color: var(--gray-500);
-      margin-bottom: 20px;
-      padding-left: 44px;
-      line-height: 1.7;
-    }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px 100px; }
 
-    /* ── EXPLAINER BOX ── */
-    .explainer {
-      background: var(--navy-pale);
-      border-left: 4px solid var(--navy);
-      border-radius: 0 8px 8px 0;
-      padding: 16px 20px;
-      margin-bottom: 20px;
-      font-size: 13.5px;
-      color: var(--navy-light);
-      line-height: 1.7;
-    }
-    .explainer strong { color: var(--navy); }
+  a { color: var(--accent-ink); }
 
-    /* ── CALLOUT ── */
-    .callout {
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin-bottom: 20px;
-      font-size: 13.5px;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      line-height: 1.7;
-    }
-    .callout.green  { background: var(--green-bg);  color: #14532D; border: 1px solid #86EFAC; }
-    .callout.amber  { background: var(--amber-bg);  color: #78350F; border: 1px solid #FCD34D; }
-    .callout.red    { background: var(--red-bg);    color: #7F1D1D; border: 1px solid #FCA5A5; }
-    .callout-icon   { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  header.hero {
+    padding: 72px 0 40px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 44px;
+  }
 
-    /* ── TABLES ── */
-    .table-wrap { overflow-x: auto; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13.5px;
-      background: var(--white);
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid var(--gray-300);
-    }
-    thead { background: var(--navy); color: var(--white); }
-    thead th {
-      padding: 12px 16px;
-      text-align: left;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    tbody tr { border-bottom: 1px solid var(--gray-100); }
-    tbody tr:last-child { border-bottom: none; }
-    tbody tr:hover { background: var(--gray-50); }
-    tbody td { padding: 12px 16px; color: var(--gray-700); vertical-align: middle; }
-    tbody td:first-child { font-weight: 500; color: var(--gray-900); }
-    .td-number { text-align: right; font-variant-numeric: tabular-nums; }
+  .kicker {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
 
-    /* ── BADGES ── */
-    .badge {
-      display: inline-block;
-      padding: 2px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .badge-green  { background: var(--green-bg);  color: var(--green); }
-    .badge-amber  { background: var(--amber-bg);  color: var(--amber); }
-    .badge-red    { background: var(--red-bg);    color: var(--red); }
-    .badge-navy   { background: var(--navy-pale); color: var(--navy); }
+  h1 {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+    margin: 0 0 20px;
+    text-wrap: balance;
+    max-width: 16ch;
+  }
 
-    /* ── OPPORTUNITY BAR ── */
-    .opp-bar-wrap { margin-bottom: 8px; }
-    .opp-bar-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      margin-bottom: 4px;
-      font-weight: 500;
-    }
-    .opp-bar-label .kw { color: var(--gray-900); }
-    .opp-bar-label .vol { color: var(--gray-500); }
-    .opp-bar-bg {
-      height: 8px;
-      background: var(--gray-100);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .opp-bar-fill {
-      height: 100%;
-      background: var(--navy);
-      border-radius: 4px;
-    }
+  .hero-lede { font-size: 19px; color: var(--ink-soft); max-width: 56ch; margin: 0; }
 
-    /* ── BUDGET RECOMMENDATION ── */
-    .budget-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    .budget-card {
-      background: var(--white);
-      border: 2px solid var(--gray-300);
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-    }
-    .budget-card.recommended {
-      border-color: var(--navy);
-    }
-    .budget-card .rec-tag {
-      position: absolute;
-      top: -11px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--navy);
-      color: var(--white);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 3px 12px;
-      border-radius: 20px;
-    }
-    .budget-card .tier { font-size: 12px; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-    .budget-card .amount { font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-    .budget-card .amount small { font-size: 14px; font-weight: 400; }
-    .budget-card .clicks { font-size: 13px; color: var(--gray-500); }
+  section { margin: 56px 0; }
 
-    /* ── COMPETITOR CARD ── */
-    .comp-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    .comp-card {
-      background: var(--white);
-      border: 1px solid var(--gray-300);
-      border-radius: 10px;
-      padding: 20px;
-    }
-    .comp-card .comp-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-    .comp-card .comp-domain {
-      font-size: 12px;
-      color: var(--gray-500);
-      margin-bottom: 12px;
-    }
-    .comp-stat { display: flex; justify-content: space-between; font-size: 13px; padding: 5px 0; border-bottom: 1px solid var(--gray-100); }
-    .comp-stat:last-child { border-bottom: none; }
-    .comp-stat .stat-label { color: var(--gray-500); }
-    .comp-stat .stat-val   { font-weight: 600; color: var(--gray-900); }
+  h2 {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
 
-    /* ── WHAT HAPPENS NEXT ── */
-    .steps { list-style: none; counter-reset: steps; }
-    .steps li {
-      counter-increment: steps;
-      display: flex;
-      gap: 16px;
-      margin-bottom: 16px;
-      align-items: flex-start;
-    }
-    .steps li::before {
-      content: counter(steps);
-      width: 28px; height: 28px;
-      background: var(--navy);
-      color: var(--white);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .steps li .step-content h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
-    .steps li .step-content p  { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+  h3 {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    margin: 0 0 6px;
+  }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 24px;
-      font-size: 12px;
-    }
-    footer strong { color: rgba(255,255,255,0.85); }
+  p { margin: 0 0 16px; max-width: 62ch; }
 
-    /* ── DIVIDER ── */
-    .divider { border: none; border-top: 1px solid var(--gray-300); margin: 40px 0; }
+  ul.plain { margin: 0 0 16px; padding-left: 1.3em; max-width: 58ch; }
+  ul.plain li { margin-bottom: 8px; }
 
-    @media (max-width: 600px) {
-      header h1 { font-size: 24px; }
-      .summary-card .value { font-size: 22px; }
-    }
-  </style>
-</head>
-<body>
+  .explainer {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 20px 0 28px;
+  }
 
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <div class="header-label">Google Ads Research Report</div>
-    <h1>Alpha Lewis Signs</h1>
-    <p class="subtitle">Keyword Research, Competitive Landscape &amp; Budget Recommendation | Australia</p>
-    <div class="header-meta">
-      <div class="meta-pill">Prepared by <strong>Josette Bartolome</strong></div>
-      <div class="meta-pill">Market: <strong>Australia (National)</strong></div>
-      <div class="meta-pill">Date: <strong>June 2026</strong></div>
-      <div class="meta-pill">Products: <strong>Signee™ Range</strong></div>
-    </div>
-  </div>
-</header>
+  .explainer .tag {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 8px;
+  }
 
-<main>
+  .explainer p:last-child { margin-bottom: 0; }
 
-  <!-- SUMMARY CARDS -->
-  <div class="summary-grid" style="margin-top:36px;">
-    <div class="summary-card highlight">
-      <div class="label">Recommended Budget</div>
-      <div class="value">$1,500–$2,000</div>
-      <div class="note">AUD per month (ad spend only)</div>
-    </div>
-    <div class="summary-card">
-      <div class="label">Avg. Cost Per Click</div>
-      <div class="value">~$4.00</div>
-      <div class="note">AUD across priority keywords</div>
-    </div>
-    <div class="summary-card">
-      <div class="label">Paid Competitors (AU)</div>
-      <div class="value">0</div>
-      <div class="note">No one is running Google Ads right now</div>
-    </div>
-    <div class="summary-card">
-      <div class="label">Top Keyword Volume</div>
-      <div class="value">5,400</div>
-      <div class="note">Monthly searches for "corflute signs"</div>
-    </div>
-  </div>
+  .answer-box {
+    background: var(--good-soft);
+    border: 1px solid var(--good);
+    border-radius: 6px;
+    padding: 24px 26px;
+    margin: 20px 0 28px;
+  }
 
+  .answer-box .tag {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--good);
+    margin: 0 0 8px;
+  }
 
-  <!-- SECTION 1: WHAT IS GOOGLE ADS -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">1</div>
-      <h2>What is Google Ads and Why Does it Matter?</h2>
+  .answer-box p:last-child { margin-bottom: 0; }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 20px 0 28px;
+  }
+
+  .proof-card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .proof-card .who {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0 0 8px;
+  }
+
+  .proof-card .line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 5px 0;
+    border-top: 1px solid var(--line);
+  }
+  .proof-card .line:first-of-type { border-top: none; }
+
+  .proof-card .line .k { color: var(--ink-soft); }
+  .proof-card .line .v {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+
+  .price-table-wrap { overflow-x: auto; margin: 20px 0 28px; }
+
+  table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: 15.5px; }
+
+  th, td { text-align: left; padding: 11px 16px 11px 0; border-bottom: 1px solid var(--line); }
+
+  th {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  td.num, th.num { font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace; font-variant-numeric: tabular-nums; }
+
+  .price-win { color: var(--good); font-weight: 700; }
+
+  .budget-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0 28px; }
+
+  .budget-card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .budget-card.primary { border-color: var(--accent); }
+
+  .budget-card .stage {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 10px;
+  }
+
+  .budget-card .figure {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+
+  .budget-card p { font-size: 14.5px; margin-bottom: 0; }
+
+  .steps { margin: 20px 0 0; padding: 0; list-style: none; counter-reset: step; }
+
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 22px 40px;
+    font-size: 16px;
+  }
+
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--paper-raised);
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .steps strong { display: block; margin-bottom: 2px; }
+
+  .closing {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 28px 30px;
+    margin-top: 48px;
+    box-shadow: var(--shadow);
+  }
+
+  .signoff { margin-top: 28px; font-size: 16px; }
+  .signoff .name { font-weight: 700; }
+
+  footer.page-foot {
+    margin-top: 60px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 32px; }
+    .proof-grid, .budget-cards { grid-template-columns: 1fr; }
+    header.hero { padding: 48px 0 32px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="kicker">Prepared for Kim Lewis, Alpha Lewis Signs</p>
+    <h1>Your Signee Google Ads Research</h1>
+    <p class="hero-lede">What your customers are searching for, what George and Willy and Piece of Sign are actually doing online, and what I recommend for a starting budget.</p>
+  </header>
+
+  <section>
+    <h2>The short version</h2>
+    <p>People searching for products like yours online do so thousands of times a month across Australia. Two of the businesses you flagged, George and Willy and Piece of Sign, are running paid product ads on Google right now. Signee is priced well below both of them for comparable products, which gives us a real advantage once we launch. I recommend starting with a modest, careful budget and scaling up once we can see it's working.</p>
+  </section>
+
+  <section>
+    <h2>First: answering your question about the screenshots</h2>
+    <div class="answer-box">
+      <p class="tag">Yes, those were ads</p>
+      <p>The screenshots you sent of George and Willy were Google Shopping ads. This is the type of ad where a product photo, its name, and its price show up near the top of a Google search, often before the regular list of websites. When you search for something like "a-frame sign," Google shows a small row of products people can buy right away. That is exactly where George and Willy's A-Frame Business Sign is appearing, priced at $599.</p>
     </div>
     <div class="explainer">
-      <strong>Google Ads</strong> puts your business at the top of Google's search results when someone types in a keyword related to your products. For example, when a cafe owner in Melbourne searches <em>"a frame sign for cafe"</em>, your ad can appear at the very top of the page, above all other businesses, before they even see organic (non-paid) results.
-      <br><br>
-      You only pay when someone <strong>clicks</strong> on your ad. There is no charge for impressions (people seeing it). This is why it's called <strong>Pay-Per-Click (PPC)</strong> advertising.
-      <br><br>
-      The <strong>ad spend</strong> (the amount that goes to Google) is completely separate from the management fee. You have full visibility and control over your budget at all times. It is charged directly to you by Google.
+      <p class="tag">Quick definition</p>
+      <p>There are two different kinds of paid ads on Google. A Search ad is a text listing, a headline and a couple of lines of description, that looks similar to a normal search result but is marked "Sponsored." A Shopping ad is a picture of the product with its price attached. George and Willy are running the second kind, Shopping ads, for their sign products. I have not found evidence they are running the first kind, plain text Search ads.</p>
     </div>
-  </div>
+  </section>
 
-
-  <!-- SECTION 2: KEYWORD RESEARCH -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">2</div>
-      <h2>Keyword Research</h2>
+  <section>
+    <h2>What I found about George and Willy and Piece of Sign</h2>
+    <p>I checked the actual, current Google results for the search terms your customers would use, in both Australia and the US, and also looked at how these two businesses have set up their own websites.</p>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <p class="who">George and Willy</p>
+        <div class="line"><span class="k">Runs Google Shopping ads</span><span class="v">Yes, confirmed</span></div>
+        <div class="line"><span class="k">Runs plain text Google ads</span><span class="v">No evidence</span></div>
+        <div class="line"><span class="k">Website confirms active Google Ads account</span><span class="v">Yes</span></div>
+      </div>
+      <div class="proof-card">
+        <p class="who">Piece of Sign</p>
+        <div class="line"><span class="k">Runs Google Shopping ads</span><span class="v">Yes, confirmed</span></div>
+        <div class="line"><span class="k">Runs plain text Google ads</span><span class="v">No evidence</span></div>
+        <div class="line"><span class="k">Closest match to your products</span><span class="v">Yes</span></div>
+      </div>
+      <div class="proof-card">
+        <p class="who">Made of Tomorrow</p>
+        <div class="line"><span class="k">Runs Google Shopping ads</span><span class="v">No evidence</span></div>
+        <div class="line"><span class="k">Runs plain text Google ads</span><span class="v">No evidence</span></div>
+        <div class="line"><span class="k">Real competitor for Signee</span><span class="v">Not really</span></div>
+      </div>
     </div>
-    <div class="section-intro">
-      These are the actual words and phrases Australians type into Google when looking for products like yours. This data comes directly from Google's own advertising platform.
-    </div>
+    <p>A closer look at where George and Willy actually showed up: their A-Frame Business Sign appeared priced at $599 for Australian searches of "a-frame sign," and again for US searches of "a-frame sign" and "storefront signage." Piece of Sign's Custom Shop Sign appeared three separate times for Australian searches of "custom shop sign," priced between $345 and $395. This is not a one-off appearance, it is a live, ongoing product listing.</p>
+    <p>I also found a second, completely separate piece of proof on George and Willy's own website. Buried in their site's code is a small piece of tracking that Google only adds when a business has an active Google Ads account set up to measure results. Businesses do not add this by accident, so this confirms, from a second and unrelated source, that they are genuinely running Google Ads.</p>
+    <p>Made of Tomorrow sells mostly home and office goods, with signage as a small side category. I found no Google advertising from them at all, in Shopping or Search. I would not treat them as a real competitor for Signee.</p>
+  </section>
 
-    <div class="explainer">
-      <strong>Monthly Searches</strong> tells us how many people search for that term each month in Australia.
-      <strong>Cost Per Click (CPC)</strong> is the estimated amount you pay each time someone clicks your ad for that keyword.
-      <strong>Competition</strong> tells us how many other businesses are also bidding on that keyword. Higher competition means the keyword is more valuable, but also potentially more expensive.
-    </div>
-
-    <div class="callout green">
-      <div class="callout-icon">✅</div>
-      <div><strong>Good news:</strong> Many of the highest-volume keywords have low to medium competition, which means Alpha Lewis Signs can show up prominently without needing a massive budget.</div>
-    </div>
-
-    <div class="table-wrap">
+  <section>
+    <h2>Good news: Signee is priced to win on this</h2>
+    <p>When I compare Signee's products to the exact items George and Willy and Piece of Sign are advertising, Signee is meaningfully cheaper for a very similar product. That is worth highlighting in the ads themselves once we launch.</p>
+    <div class="price-table-wrap">
       <table>
         <thead>
-          <tr>
-            <th>Keyword</th>
-            <th>Monthly Searches (AU)</th>
-            <th>Cost Per Click (AUD)</th>
-            <th>Priority</th>
-          </tr>
+          <tr><th>Product type</th><th>Signee</th><th class="num">Signee price</th><th>Their ad</th><th class="num">Their price</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>a frame sign</td>
-            <td class="td-number">2,400</td>
-            <td class="td-number">$3.25</td>
-            <td><span class="badge badge-green">High</span></td>
-          </tr>
-          <tr>
-            <td>business signage</td>
-            <td class="td-number">1,600</td>
-            <td class="td-number">$4.92</td>
-            <td><span class="badge badge-green">High</span></td>
-          </tr>
-          <tr>
-            <td>custom signage</td>
-            <td class="td-number">1,600</td>
-            <td class="td-number">$4.01</td>
-            <td><span class="badge badge-green">High</span></td>
-          </tr>
-          <tr>
-            <td>acrylic signs</td>
-            <td class="td-number">1,600</td>
-            <td class="td-number">$3.55</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-          </tr>
-          <tr>
-            <td>cafe signs</td>
-            <td class="td-number">880</td>
-            <td class="td-number">$2.28</td>
-            <td><span class="badge badge-green">High</span></td>
-          </tr>
-          <tr>
-            <td>real estate signs</td>
-            <td class="td-number">880</td>
-            <td class="td-number">$6.24</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-          </tr>
-          <tr>
-            <td>sandwich board signs</td>
-            <td class="td-number">720</td>
-            <td class="td-number">$2.94</td>
-            <td><span class="badge badge-green">High</span></td>
-          </tr>
-          <tr>
-            <td>outdoor signs for business</td>
-            <td class="td-number">590</td>
-            <td class="td-number">$5.66</td>
-            <td><span class="badge badge-green">High</span></td>
-          </tr>
-          <tr>
-            <td>illuminated signs</td>
-            <td class="td-number">390</td>
-            <td class="td-number">$6.05</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-          </tr>
-          <tr>
-            <td>chalkboard sign</td>
-            <td class="td-number">390</td>
-            <td class="td-number">$0.51</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-          </tr>
-          <tr>
-            <td>retail signs</td>
-            <td class="td-number">320</td>
-            <td class="td-number">$3.88</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-          </tr>
-          <tr>
-            <td>restaurant signage</td>
-            <td class="td-number">210</td>
-            <td class="td-number">$5.09</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-          </tr>
-          <tr>
-            <td>custom business signs</td>
-            <td class="td-number">210</td>
-            <td class="td-number">$4.50</td>
-            <td><span class="badge badge-green">High</span></td>
-          </tr>
-          <tr>
-            <td>custom a frame sign</td>
-            <td class="td-number">140</td>
-            <td class="td-number">$4.63</td>
-            <td><span class="badge badge-green">High</span></td>
-          </tr>
-          <tr>
-            <td>custom signage australia</td>
-            <td class="td-number">140</td>
-            <td class="td-number">$3.02</td>
-            <td><span class="badge badge-green">High</span></td>
-          </tr>
+          <tr><td>Roadside A-frame sign</td><td>Walter</td><td class="num">$374.00</td><td>George and Willy A-Frame Sign</td><td class="num price-win">$599.00</td></tr>
+          <tr><td>Roadside A-frame sign, smaller</td><td>Winnie</td><td class="num">$264.00</td><td>George and Willy A-Frame Sign</td><td class="num price-win">$599.00</td></tr>
+          <tr><td>Wall or hanging sign</td><td>Theodore / Flossy</td><td class="num">$176.00</td><td>Piece of Sign Custom Shop Sign</td><td class="num price-win">$345.15</td></tr>
         </tbody>
       </table>
     </div>
+  </section>
 
-    <p style="font-size:12px;color:var(--gray-500);margin-top:10px;">Source: Google Ads Keyword Planner. Data reflects average monthly searches in Australia.</p>
+  <section>
+    <h2>About Facebook and Instagram ads</h2>
+    <p>You mentioned that George and Willy seem to be everywhere on social media, and that they might not be running Google ads but are running Meta ads because you are "flooded with them all over social platforms." I took that seriously and tried to confirm it properly. I checked Facebook's own public ad records tool, requested access through Facebook's official developer channel, and looked directly at both their Facebook page and their Instagram profile. Every one of these came back blocked. Facebook requires anyone looking at this information to be signed in and verified as a real person browsing directly, by design, and that is not something any research tool can get around from the outside.</p>
+    <p>What I could confirm instead is that George and Willy runs a properly resourced ecommerce operation, not a hobby shop. Their website is built on Shopify with Klaviyo for email and text marketing, Intelligems for price testing, and Gorgias for customer support, the kind of stack a business invests in when it is actively advertising and needs to track results closely. Their site also carries Google's own tracking code, the kind that only gets added when a business has a live Google Ads account running, which confirms from a second, completely unrelated source that they take paid advertising seriously.</p>
+    <p>I did not find the equivalent Facebook tracking code on their site, but I would not read that as a no. Shopify often loads that kind of code through its own hidden system rather than placing it directly on the page, so it would not show up in this kind of check even if it were active. In other words, your instinct about Google Shopping is now confirmed with hard evidence, and your instinct about Meta remains a real possibility that I simply cannot rule in or out from outside a logged in Facebook account.</p>
+    <p>Getting a definitive answer just needs a quick, direct look at Facebook's own public ad records while signed in, rather than the kind of automated check I can run for search and website data. I will confirm this properly once we are formally underway.</p>
+  </section>
 
-    <br>
-    <div class="explainer">
-      <strong>What does this mean for Alpha Lewis Signs?</strong> There are thousands of Australians every month actively searching for the exact products you sell. The keywords "a frame sign," "business signage," "cafe signs," and "sandwich board signs" are the most directly relevant to your Signee™ range and represent your highest-priority targets.
-    </div>
-  </div>
-
-
-  <!-- SECTION 3: KEYWORD OPPORTUNITY CHART -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">3</div>
-      <h2>Search Volume at a Glance</h2>
-    </div>
-    <div class="section-intro">
-      How many Australians are searching for each keyword every month.
-    </div>
-
-    <div style="background:var(--white);border:1px solid var(--gray-300);border-radius:10px;padding:24px;">
-      <div class="opp-bar-wrap">
-        <div class="opp-bar-label"><span class="kw">a frame sign</span><span class="vol">2,400/mo</span></div>
-        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:44%"></div></div>
-      </div>
-      <div class="opp-bar-wrap">
-        <div class="opp-bar-label"><span class="kw">business signage</span><span class="vol">1,600/mo</span></div>
-        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:29%"></div></div>
-      </div>
-      <div class="opp-bar-wrap">
-        <div class="opp-bar-label"><span class="kw">custom signage</span><span class="vol">1,600/mo</span></div>
-        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:29%"></div></div>
-      </div>
-      <div class="opp-bar-wrap">
-        <div class="opp-bar-label"><span class="kw">acrylic signs</span><span class="vol">1,600/mo</span></div>
-        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:29%"></div></div>
-      </div>
-      <div class="opp-bar-wrap">
-        <div class="opp-bar-label"><span class="kw">cafe signs</span><span class="vol">880/mo</span></div>
-        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:16%"></div></div>
-      </div>
-      <div class="opp-bar-wrap">
-        <div class="opp-bar-label"><span class="kw">real estate signs</span><span class="vol">880/mo</span></div>
-        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:16%"></div></div>
-      </div>
-      <div class="opp-bar-wrap">
-        <div class="opp-bar-label"><span class="kw">sandwich board signs</span><span class="vol">720/mo</span></div>
-        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:13%"></div></div>
-      </div>
-      <div class="opp-bar-wrap">
-        <div class="opp-bar-label"><span class="kw">outdoor signs for business</span><span class="vol">590/mo</span></div>
-        <div class="opp-bar-bg"><div class="opp-bar-fill" style="width:11%"></div></div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- SECTION 4: COMPETITOR ANALYSIS -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">4</div>
-      <h2>Competitor Analysis</h2>
-    </div>
-    <div class="section-intro">
-      We conducted a full audit across 16 keywords and 9 competitor domains to find out exactly who is running Google Ads in Australia and how strong the competition is.
-    </div>
-
-    <!-- 4A: Named competitors -->
-    <h3 style="font-size:15px;font-weight:600;color:var(--navy);margin-bottom:12px;">4A. Competitors You Named</h3>
-
-    <div class="callout amber">
-      <div class="callout-icon">⚠️</div>
-      <div>
-        <strong>Important finding:</strong> The three businesses you named (George and Willy, Piece of Sign, Made of Tomorrow) have <strong>no Google Ads presence in Australia and no organic rankings in the Australian market.</strong> They are not actively targeting Australian customers through Google, so they cannot be used as a benchmark for ad spend. The good news is they are not your competition in Australia.
-      </div>
-    </div>
-
-    <div class="comp-grid">
-      <div class="comp-card">
-        <div class="comp-name">George and Willy</div>
-        <div class="comp-domain">georgeandwilly.com</div>
-        <div class="comp-stat"><span class="stat-label">Google Ads in AU</span><span class="stat-val" style="color:var(--red)">None</span></div>
-        <div class="comp-stat"><span class="stat-label">AU Organic Rankings</span><span class="stat-val" style="color:var(--red)">None</span></div>
-        <div class="comp-stat"><span class="stat-label">AU Market Presence</span><span class="stat-val"><span class="badge badge-red">Not Active</span></span></div>
-      </div>
-      <div class="comp-card">
-        <div class="comp-name">Piece of Sign</div>
-        <div class="comp-domain">pieceofsign.com</div>
-        <div class="comp-stat"><span class="stat-label">Google Ads in AU</span><span class="stat-val" style="color:var(--red)">None</span></div>
-        <div class="comp-stat"><span class="stat-label">AU Organic Rankings</span><span class="stat-val" style="color:var(--red)">None</span></div>
-        <div class="comp-stat"><span class="stat-label">AU Market Presence</span><span class="stat-val"><span class="badge badge-red">Not Active</span></span></div>
-      </div>
-      <div class="comp-card">
-        <div class="comp-name">Made of Tomorrow</div>
-        <div class="comp-domain">madeoftomorrow.com</div>
-        <div class="comp-stat"><span class="stat-label">Google Ads in AU</span><span class="stat-val" style="color:var(--red)">None</span></div>
-        <div class="comp-stat"><span class="stat-label">AU Organic Rankings</span><span class="stat-val" style="color:var(--red)">None</span></div>
-        <div class="comp-stat"><span class="stat-label">AU Market Presence</span><span class="stat-val"><span class="badge badge-red">Not Active</span></span></div>
-      </div>
-    </div>
-
-    <!-- 4B: Real AU competitors -->
-    <h3 style="font-size:15px;font-weight:600;color:var(--navy);margin:32px 0 12px;">4B. Who Is Actually Competing in Australia?</h3>
-
-    <div class="explainer">
-      We scanned Google's live results across <strong>16 signage keywords</strong> and identified the businesses that dominate the organic (unpaid) results in Australia. We then went deeper on each one, checking their estimated monthly traffic, total keywords, and whether they are running Google Ads.
-      <br><br>
-      <strong>Key finding: not a single one of these businesses is running Google Ads on any signage keyword.</strong> The paid search space is completely open.
-    </div>
-
-    <div class="table-wrap">
+  <section>
+    <h2>What your customers are searching for</h2>
+    <p>Each month, thousands of people across Australia search Google for signage terms that match Signee's products. Here is the actual monthly search volume and typical cost per click for the terms that matter most, all figures are for Australia.</p>
+    <div class="price-table-wrap">
       <table>
         <thead>
-          <tr>
-            <th>Business</th>
-            <th>Est. Monthly Traffic</th>
-            <th>Keywords Ranked</th>
-            <th>Running Google Ads?</th>
-            <th>Threat Level</th>
-          </tr>
+          <tr><th>What people search</th><th class="num">Searches per month</th><th class="num">Cost per click</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>vistaprint.com.au</td>
-            <td class="td-number">836,692</td>
-            <td class="td-number">35,152</td>
-            <td><span class="badge badge-amber">Brand terms only</span></td>
-            <td><span class="badge badge-amber">Medium</span></td>
-          </tr>
-          <tr>
-            <td>easysigns.com.au</td>
-            <td class="td-number">111,373</td>
-            <td class="td-number">5,507</td>
-            <td><span class="badge badge-green">No ads</span></td>
-            <td><span class="badge badge-amber">Medium</span></td>
-          </tr>
-          <tr>
-            <td>bannerbuzz.com.au</td>
-            <td class="td-number">89,782</td>
-            <td class="td-number">8,862</td>
-            <td><span class="badge badge-green">No ads on signage</span></td>
-            <td><span class="badge badge-navy">Low</span></td>
-          </tr>
-          <tr>
-            <td>slimlinewarehouse.com.au</td>
-            <td class="td-number">97,135</td>
-            <td class="td-number">9,296</td>
-            <td><span class="badge badge-green">No ads</span></td>
-            <td><span class="badge badge-navy">Low</span></td>
-          </tr>
-          <tr>
-            <td>vividads.com.au</td>
-            <td class="td-number">81,856</td>
-            <td class="td-number">4,301</td>
-            <td><span class="badge badge-green">No ads</span></td>
-            <td><span class="badge badge-navy">Low</span></td>
-          </tr>
-          <tr>
-            <td>newsigns.com.au</td>
-            <td class="td-number">50,900</td>
-            <td class="td-number">4,090</td>
-            <td><span class="badge badge-amber">Road/safety signs only</span></td>
-            <td><span class="badge badge-navy">Low</span></td>
-          </tr>
-          <tr>
-            <td>signarama.com.au</td>
-            <td class="td-number">54,933</td>
-            <td class="td-number">3,917</td>
-            <td><span class="badge badge-green">No ads</span></td>
-            <td><span class="badge badge-navy">Low</span></td>
-          </tr>
+          <tr><td>a-frame sign</td><td class="num">2,400</td><td class="num">$3.42</td></tr>
+          <tr><td>business signage</td><td class="num">1,600</td><td class="num">$4.62</td></tr>
+          <tr><td>shop signage</td><td class="num">880</td><td class="num">$5.87</td></tr>
+          <tr><td>cafe signage</td><td class="num">720</td><td class="num">$3.24</td></tr>
+          <tr><td>outdoor business sign</td><td class="num">590</td><td class="num">$6.00</td></tr>
+          <tr><td>sandwich board sign</td><td class="num">390</td><td class="num">$3.88</td></tr>
+          <tr><td>custom shop sign</td><td class="num">40</td><td class="num">$5.50</td></tr>
         </tbody>
       </table>
     </div>
+    <p>Added together, that is over 6,500 searches every month just from these seven terms, before counting smaller, more specific searches. This is a proven, ongoing base of demand, not a guess, and it is what the starting budget below is built on.</p>
+  </section>
 
-    <!-- 4C: Competitor profiles -->
-    <h3 style="font-size:15px;font-weight:600;color:var(--navy);margin:32px 0 12px;">4C. Competitor Profiles</h3>
-
-    <div class="comp-grid">
-
-      <div class="comp-card">
-        <div class="comp-name">Vistaprint Australia</div>
-        <div class="comp-domain">vistaprint.com.au</div>
-        <div class="comp-stat"><span class="stat-label">Monthly Traffic</span><span class="stat-val">836,692</span></div>
-        <div class="comp-stat"><span class="stat-label">Keywords Ranking</span><span class="stat-val">35,152</span></div>
-        <div class="comp-stat"><span class="stat-label">Google Ads Active</span><span class="stat-val">14 keywords</span></div>
-        <div class="comp-stat"><span class="stat-label">Ads Relevance</span><span class="stat-val" style="color:var(--green)">Brand terms only</span></div>
-        <br>
-        <p style="font-size:12px;color:var(--gray-500);line-height:1.6;">The largest player in AU by traffic. They rank for thousands of keywords including signage, but their paid ads are exclusively on their own brand name (e.g. "vistaprint login", "vistaprint australia"). They are not bidding on any product keywords that Alpha Lewis Signs would target. Their size makes them dominant organically, but they leave the paid space completely open.</p>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-name">EasySigns</div>
-        <div class="comp-domain">easysigns.com.au</div>
-        <div class="comp-stat"><span class="stat-label">Monthly Traffic</span><span class="stat-val">111,373</span></div>
-        <div class="comp-stat"><span class="stat-label">Keywords Ranking</span><span class="stat-val">5,507</span></div>
-        <div class="comp-stat"><span class="stat-label">Google Ads Active</span><span class="stat-val" style="color:var(--green)">None</span></div>
-        <div class="comp-stat"><span class="stat-label">Paid Traffic</span><span class="stat-val" style="color:var(--green)">$0</span></div>
-        <br>
-        <p style="font-size:12px;color:var(--gray-500);line-height:1.6;">A dedicated AU signage company and the most direct organic competitor. They rank #4 for "signs" and #1 for "a frame sign." Despite their strong organic presence, they are running zero Google Ads. This means a paid ad from Alpha Lewis Signs would appear above EasySigns on Google every time.</p>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-name">BannerBuzz</div>
-        <div class="comp-domain">bannerbuzz.com.au</div>
-        <div class="comp-stat"><span class="stat-label">Monthly Traffic</span><span class="stat-val">89,782</span></div>
-        <div class="comp-stat"><span class="stat-label">Keywords Ranking</span><span class="stat-val">8,862</span></div>
-        <div class="comp-stat"><span class="stat-label">Google Ads Active</span><span class="stat-val">Yes (5 keywords)</span></div>
-        <div class="comp-stat"><span class="stat-label">Paid Keywords</span><span class="stat-val" style="color:var(--green)">Brand terms only</span></div>
-        <br>
-        <p style="font-size:12px;color:var(--gray-500);line-height:1.6;">BannerBuzz is running Google Ads, but their 5 paid keywords are exclusively their own brand terms: "banner australia," "bannerbuzz australia," "banners adelaide," and similar. They are not bidding on any product keywords that Alpha Lewis Signs would target. Not a direct competitor in paid search for the Signee range.</p>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-name">NewSigns</div>
-        <div class="comp-domain">newsigns.com.au</div>
-        <div class="comp-stat"><span class="stat-label">Monthly Traffic</span><span class="stat-val">50,900</span></div>
-        <div class="comp-stat"><span class="stat-label">Keywords Ranking</span><span class="stat-val">4,090</span></div>
-        <div class="comp-stat"><span class="stat-label">Google Ads Active</span><span class="stat-val">Yes (2 keywords)</span></div>
-        <div class="comp-stat"><span class="stat-label">Paid Keywords</span><span class="stat-val" style="color:var(--green)">Road/safety signs</span></div>
-        <br>
-        <p style="font-size:12px;color:var(--gray-500);line-height:1.6;">NewSigns runs Google Ads on 2 keywords: "give way signs australia" and "parking sign perth." These are road and safety signs, a completely different product category to the Signee range. They rank organically for "custom signage," but their paid spend is focused on a different customer entirely. No overlap with Alpha Lewis Signs' target keywords.</p>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-name">Signarama</div>
-        <div class="comp-domain">signarama.com.au</div>
-        <div class="comp-stat"><span class="stat-label">Monthly Traffic</span><span class="stat-val">54,933</span></div>
-        <div class="comp-stat"><span class="stat-label">Keywords Ranking</span><span class="stat-val">3,917</span></div>
-        <div class="comp-stat"><span class="stat-label">Google Ads Active</span><span class="stat-val" style="color:var(--green)">None</span></div>
-        <div class="comp-stat"><span class="stat-label">Focus</span><span class="stat-val">Local franchises</span></div>
-        <br>
-        <p style="font-size:12px;color:var(--gray-500);line-height:1.6;">A franchise signage network, primarily focused on local city-level searches (e.g. "signage Brisbane," "signs Melbourne"). No national Google Ads presence. Their model is very different from Alpha Lewis Signs. Not a direct threat in paid search.</p>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-name">VividAds</div>
-        <div class="comp-domain">vividads.com.au</div>
-        <div class="comp-stat"><span class="stat-label">Monthly Traffic</span><span class="stat-val">81,856</span></div>
-        <div class="comp-stat"><span class="stat-label">Keywords Ranking</span><span class="stat-val">4,301</span></div>
-        <div class="comp-stat"><span class="stat-label">Google Ads Active</span><span class="stat-val" style="color:var(--green)">None</span></div>
-        <div class="comp-stat"><span class="stat-label">Focus</span><span class="stat-val">Broad print/display</span></div>
-        <br>
-        <p style="font-size:12px;color:var(--gray-500);line-height:1.6;">A broad advertising display and print supplier. Despite strong organic traffic, they run no Google Ads at all. Their keyword profile shows they attract a wide audience (flags, posters, stickers) rather than specifically targeting businesses looking for A-frame or premium signs.</p>
-      </div>
-
-      <div class="comp-card">
-        <div class="comp-name">Slimline Warehouse</div>
-        <div class="comp-domain">slimlinewarehouse.com.au</div>
-        <div class="comp-stat"><span class="stat-label">Monthly Traffic</span><span class="stat-val">97,135</span></div>
-        <div class="comp-stat"><span class="stat-label">Keywords Ranking</span><span class="stat-val">9,296</span></div>
-        <div class="comp-stat"><span class="stat-label">Google Ads Active</span><span class="stat-val" style="color:var(--green)">None</span></div>
-        <div class="comp-stat"><span class="stat-label">Focus</span><span class="stat-val">Display and retail fittings</span></div>
-        <br>
-        <p style="font-size:12px;color:var(--gray-500);line-height:1.6;">A retail display and fittings warehouse. While they appear for some signage-adjacent terms, their core business is display stands, spinner racks, and clothing rails. A different product category. No Google Ads active and not a direct competitor to the Signee range.</p>
-      </div>
-
-    </div>
-
-    <!-- 4D: Big takeaway -->
-    <div class="callout green" style="margin-top:8px;">
-      <div class="callout-icon">🚀</div>
-      <div>
-        <strong>First-mover advantage:</strong> After auditing 16 keywords and 9 competitors, we confirmed that <strong>no business is running Google Ads on the specific product terms Alpha Lewis Signs would target.</strong> While BannerBuzz and NewSigns do run some paid ads, their spending is on brand terms and road safety signs respectively. Not a single competitor is bidding on "a frame sign," "cafe signs," "sandwich board signs," "custom business signs," or any of the other priority keywords. Alpha Lewis Signs would be the first dedicated premium signage brand to appear at the top of Google in Australia for these searches. In paid advertising, being first means lower costs, higher visibility, and a clear head start before others catch on.
-      </div>
-    </div>
-  </div>
-
-
-  <!-- SECTION 5: BUDGET RECOMMENDATION -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">5</div>
-      <h2>Recommended Ad Spend</h2>
-    </div>
-    <div class="section-intro">
-      Based on our keyword research and competitive analysis, here is our recommendation for your starting Google Ads budget.
-    </div>
-
-    <div class="explainer">
-      <strong>How we calculated this:</strong> We know the average cost per click (CPC) for your priority keywords is approximately $4.00 AUD. To generate meaningful results, enough clicks to learn what's working and start producing enquiries, we need a minimum of 300 clicks per month. The recommended budget allows for 375 to 500 clicks per month, giving the campaign enough data to optimise quickly.
-    </div>
-
-    <div class="budget-grid">
-      <div class="budget-card">
-        <div class="tier">Minimum Viable</div>
-        <div class="amount">$1,200 <small>AUD/mo</small></div>
-        <div class="clicks">~300 clicks/month</div>
-        <br>
-        <p style="font-size:12px;color:var(--gray-500)">Enough to start and gather initial data, but limited room to test multiple keywords.</p>
-      </div>
-      <div class="budget-card recommended">
-        <div class="rec-tag">Recommended</div>
-        <div class="tier">Recommended Start</div>
-        <div class="amount">$1,500–$2,000 <small>AUD/mo</small></div>
-        <div class="clicks">~375–500 clicks/month</div>
-        <br>
-        <p style="font-size:12px;color:var(--gray-500)">Gives us the volume to test, learn, and optimise across multiple keywords within the first 4–6 weeks.</p>
+  <section>
+    <h2>My recommended starting budget</h2>
+    <div class="budget-cards">
+      <div class="budget-card primary">
+        <p class="stage">Stage one, to start</p>
+        <p class="figure">$1,200 / month</p>
+        <p>Search ads only. Enough to get real data flowing without spending on Shopping ads before we can prove the site converts visitors into customers.</p>
       </div>
       <div class="budget-card">
-        <div class="tier">Aggressive Growth</div>
-        <div class="amount">$2,500 <small>AUD/mo</small></div>
-        <div class="clicks">~625 clicks/month</div>
-        <br>
-        <p style="font-size:12px;color:var(--gray-500)">Best for fast market penetration. Captures a larger share of searches and scales faster.</p>
+        <p class="stage">Stage two, once proven</p>
+        <p class="figure">$2,000 to $3,500 / month</p>
+        <p>Adding Shopping ads once we can see Search is converting. This is the stage where we compete directly with George and Willy and Piece of Sign on the Shopping listings.</p>
       </div>
     </div>
+    <p>This is ad spend only, paid directly to Google, separate from the management fee. Moving from stage one to stage two is not on a fixed date, it happens once we have enough data to know it is the right time.</p>
+  </section>
 
-    <div class="callout amber">
-      <div class="callout-icon">💡</div>
-      <div>
-        <strong>Note on real CPCs:</strong> Because there are currently no competitors running ads on these keywords, the actual cost per click may come in <strong>lower</strong> than the $4.00 benchmark. This could mean your budget goes further than projected, giving you more clicks for the same spend. We will confirm actual CPCs once the campaign goes live.
+  <section>
+    <h2>How the campaigns will be set up</h2>
+    <p>Rather than one big ad trying to cover everything, I split the campaign into small, focused groups. Each group only shows up for searches that match it, and sends people straight to the matching product page instead of your homepage. This is what tends to convert visitors into buyers.</p>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <p class="who">Group 1: A-Frame &amp; Sidewalk Signs</p>
+        <div class="line"><span class="k">Products</span><span class="v">Winnie, Walter</span></div>
+        <div class="line"><span class="k">Shows for searches like</span><span class="v">"a-frame sign," "sidewalk sign"</span></div>
+      </div>
+      <div class="proof-card">
+        <p class="who">Group 2: Wall &amp; Hanging Signs</p>
+        <div class="line"><span class="k">Products</span><span class="v">Flossy, Theodore, Mini's</span></div>
+        <div class="line"><span class="k">Shows for searches like</span><span class="v">"business signage," "shop sign"</span></div>
+      </div>
+      <div class="proof-card">
+        <p class="who">Group 3: General Business Signage</p>
+        <div class="line"><span class="k">Products</span><span class="v">Full Signee range</span></div>
+        <div class="line"><span class="k">Shows for searches like</span><span class="v">broader, awareness level terms</span></div>
+      </div>
+      <div class="proof-card">
+        <p class="who">Stage two: Shopping ads</p>
+        <div class="line"><span class="k">What it needs</span><span class="v">A product feed</span></div>
+        <div class="line"><span class="k">What that is</span><span class="v">A list of every product, photo and price, that Google turns into the same picture-and-price ads George and Willy is running</span></div>
       </div>
     </div>
-
-    <div class="callout amber">
-      <div class="callout-icon">📋</div>
-      <div>
-        <strong>Important note on budget:</strong> While the final ad spend is your decision, we strongly advise a <strong>minimum of $1,200 AUD per month.</strong> Going below this threshold does not give Google's algorithm enough data to learn and optimise, which means slower results and a less efficient use of your money. The recommended starting point of $1,500 to $2,000 AUD gives the campaign the best chance of performing well from the start.
-      </div>
-    </div>
-
-    <div class="explainer">
-      <strong>This is the ad spend only.</strong> It is paid directly to Google and is entirely separate from the management fee. You can increase, decrease, or pause your budget at any time.
-    </div>
-  </div>
-
-
-  <!-- SECTION 6: WHAT HAPPENS NEXT -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">6</div>
-      <h2>What Happens Next</h2>
-    </div>
-    <div class="section-intro">
-      Once you confirm the budget, here is what the setup process looks like.
-    </div>
-
-    <ul class="steps">
-      <li>
-        <div class="step-content">
-          <h4>Budget Confirmation</h4>
-          <p>You confirm your preferred monthly ad spend from the options above. This is the amount that will go directly to Google.</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-content">
-          <h4>Google Ads Account Setup</h4>
-          <p>We set up your Google Ads account, connect it to your website, and install conversion tracking so we can see exactly which clicks are turning into enquiries or sales.</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-content">
-          <h4>Campaign Build</h4>
-          <p>We build your campaigns using the keywords from this research, write the ad copy, and set up targeting for all of Australia. Before anything goes live, you will have the opportunity to review and approve.</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-content">
-          <h4>Go Live</h4>
-          <p>Your ads go live. Within the first 48 hours you will start appearing at the top of Google for your target keywords.</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-content">
-          <h4>Weekly Reporting</h4>
-          <p>You receive a weekly summary of how your ads are performing: clicks, spend, and any leads generated. After 4 to 6 weeks, we will have enough data to make informed decisions about what to scale and what to adjust.</p>
-        </div>
-      </li>
+    <p>Two more things run quietly in the background of every group:</p>
+    <ul class="plain">
+      <li><strong>A list of excluded words.</strong> We tell Google which searches to ignore, so we are not paying for clicks from people looking for things Signee does not sell, like custom signwriting or industrial signage jobs.</li>
+      <li><strong>Order tracking.</strong> A simple setup that tells us the moment someone actually buys, so we always know which ads and which products are working, and can shift budget toward what performs.</li>
     </ul>
-  </div>
+    <p>All of this targets the whole of Australia to match Signee's national reach. Once stage one proves out and the product feed is ready, the Shopping campaign layers in alongside it rather than replacing it.</p>
+  </section>
 
-  <hr class="divider"/>
+  <section>
+    <h2>What I need from you to get started</h2>
+    <p>Just one thing needs to happen before I can begin billable work.</p>
+    <ol class="steps">
+      <li><strong>Confirm the work arrangement</strong>Management fee billed on the 15th and 30th of each month, invoiced the day before. Once this is confirmed, we lock in a start date and I get moving straight away.</li>
+    </ol>
+    <p>Two more things will help along the way, but neither one holds up the start. Send the full product list, including the new lightbox item, whenever it is ready, I will build around the current Signee range in the meantime and fold in new products as they come. And whenever the new site is ready, just point me to it, I will already be building and testing everything against the current live site, so switching over is a simple update, not a delay.</p>
+  </section>
 
-  <div class="callout amber" style="margin-bottom:20px;">
-    <div class="callout-icon">📌</div>
-    <div>
-      <strong>Disclaimer:</strong> This research is based on the products currently listed at <a href="https://shop.alphalewissigns.com.au/" target="_blank" style="color:var(--amber);text-decoration:underline;">shop.alphalewissigns.com.au</a> at the time of this report (the Signee™ range: Flossy, Winnie, Walter, Mini's, and Theodore). If new products are added to the range or the website is updated with additional categories, a fresh round of keyword research will be required to ensure the campaigns accurately reflect what is being offered. Please notify us of any new product additions so we can update the strategy accordingly.
-    </div>
-  </div>
+  <section>
+    <h2>What to expect, and when</h2>
+    <p>Once the work arrangement is confirmed, here is roughly how the first few weeks go. These are typical timings, not guarantees, since some of it depends on how quickly Google reviews things. Search ads and Shopping ads run on two different clocks, so I start both at the same time rather than one after the other.</p>
 
-  <p style="font-size:13px;color:var(--gray-500);text-align:center;line-height:1.8;">
-    This report was prepared based on live data from Google Ads Keyword Planner and Google Search Results as of June 2026.<br>
-    All figures are in Australian Dollars (AUD). Search volumes and CPCs are estimates and may vary.
-  </p>
+    <h3>Search ads, the first campaign to go live</h3>
+    <ol class="steps">
+      <li><strong>Week 1: building begins</strong>I set up conversion tracking and build the campaigns using the current Signee site, so nothing has to wait on the new one.</li>
+      <li><strong>Week 2: submitted for review</strong>Keywords, ad wording and tracking are finished and sent to Google, who usually take one to three business days to approve a new campaign.</li>
+      <li><strong>Week 2 to 3: ads go live</strong>Starting at the conservative budget so we can watch performance closely from day one.</li>
+      <li><strong>Week 4 to 6: first real read</strong>Enough data has come in to see what is working, and to decide when to add Shopping ads.</li>
+    </ol>
 
-</main>
+    <h3>Shopping ads, set up in the background from day one</h3>
+    <p>Shopping ads need their own approval process first, through something called Google Merchant Center. It is Google's system for checking every product's details, price, image and availability, before any of it is allowed to appear as a Shopping ad. This account needs to be set up and your website verified as yours, then every product submitted and approved, and that can take about a week or two on its own, sometimes longer if Google asks for a fix to a product listing. Because it is a separate clock, I start this in the background from the beginning rather than waiting until Search is up and running.</p>
+    <ol class="steps">
+      <li><strong>Week 1 to 2: account set up and verified</strong>Google Merchant Center is created and connected to your website.</li>
+      <li><strong>Week 2 to 3: product feed submitted</strong>Every Signee product, with photo, price and details, is sent to Google for approval. This step needs the full product list, so the sooner that arrives, the sooner this can be finished.</li>
+      <li><strong>By week 4 to 6: ready to switch on</strong>If Merchant Center is approved by the time Search data tells us it is the right moment, Shopping ads can go live immediately rather than adding another few weeks after that decision.</li>
+    </ol>
 
-<footer>
-  <strong>Alpha Lewis Signs: Google Ads Research Report</strong><br>
-  Prepared by Josette Bartolome &nbsp;·&nbsp; josette.b@webprofits.com.au &nbsp;·&nbsp; June 2026
-</footer>
+    <p>If the new staging site arrives partway through, I simply point the ads at the new pages once it is live, nothing here needs to wait on it.</p>
+  </section>
 
-</body>
-</html>
+  <footer class="page-foot">
+    Prepared for Alpha Lewis Signs and the Signee product range. Based on current Google search results, public pricing, and website research as of July 2026.
+  </footer>
+
+</div>
