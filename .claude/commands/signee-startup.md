@@ -1,6 +1,6 @@
 ---
 name: signee-startup
-description: Start a Signee (Alpha Lewis Signs) work session. Pulls latest from GitHub, reads master-tracker.md and CLAUDE.md, and surfaces outstanding and completed items.
+description: Start a Signee (Alpha Lewis Signs) work session. Pulls latest from GitHub, reads Google Ads Tasks/master-tracker.md and CLAUDE.md, and surfaces outstanding and completed items.
 ---
 
 # Signee (Alpha Lewis Signs): Session Startup
@@ -18,7 +18,7 @@ Report any new files pulled or conflicts.
 
 Read:
 - `CLAUDE.md` (account details, writing/reporting rules)
-- `master-tracker.md` (outstanding items, lessons learned, completed log)
+- `Google Ads Tasks/master-tracker.md` (outstanding items, lessons learned, completed log)
 
 ## Step 3: Check Gmail before reporting status
 
@@ -33,11 +33,11 @@ Do not report a gap or an "all clear" without checking mail first.
 
 If the tracker's "Immediate - Outstanding" section shows billing as still pending, but Gmail suggests Kim/Nic have acted, check the account directly:
 - Admin > Account settings on CID 715-970-4117 - confirm Time zone shows an Australian zone (not Philippine Standard Time) and currency is AUD
-- Do not trust wizard-screen previews - only Admin > Account settings is authoritative (see "Lessons learned" in master-tracker.md for why)
+- Do not trust wizard-screen previews - only Admin > Account settings is authoritative (see "Lessons learned" in Google Ads Tasks/master-tracker.md for why)
 
 ## Step 5: Surface what needs attention
 
-From `master-tracker.md`, identify:
+From `Google Ads Tasks/master-tracker.md`, identify:
 - Unchecked items in "Immediate - Outstanding"
 - Anything now resolved based on Gmail/account checks in Steps 3-4 (flag for the user to confirm before checking off)
 

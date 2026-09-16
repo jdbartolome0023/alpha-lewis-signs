@@ -22,7 +22,7 @@
 
 - Never send emails directly - always create a Gmail draft for review first.
 - Always check Gmail before giving task updates or status reports.
-- Log findings/fixes/replies into `master-tracker.md` proactively, same session, not only when asked.
+- Log findings/fixes/replies into `Google Ads Tasks/master-tracker.md` proactively, same session, not only when asked.
 
 ## Goals (per Kim's brief, Sep 2026)
 
@@ -36,11 +36,12 @@
 ```
 Alpha Lewis Signs/
 ├── CLAUDE.md                        ← this file
-├── master-tracker.md                ← living tracker, pending + completed actions
+├── Google Ads Tasks/
+│   └── master-tracker.md            ← living tracker, pending + completed actions
 ├── website-audit-sep15-2026.md      ← pre-launch site audit
 ├── index.html                       ← July 2026 competitor research report (pricing now stale)
 ├── weekly-reports/
-│   └── week-*.md                    ← Mon-Fri task summaries for Kim
+│   └── week-*.html                  ← Mon-Fri task summaries for Kim (client-facing)
 ├── .claude/
 │   ├── commands/
 │   │   ├── signee-startup.md        ← session startup skill

@@ -1,15 +1,15 @@
 ---
 name: signee-wrapup
-description: Wrap up a Signee (Alpha Lewis Signs) work session. Logs the day's findings/fixes into master-tracker.md, shows what changed, commits, and pushes to GitHub.
+description: Wrap up a Signee (Alpha Lewis Signs) work session. Logs the day's findings/fixes into Google Ads Tasks/master-tracker.md, shows what changed, commits, and pushes to GitHub.
 ---
 
 # Signee (Alpha Lewis Signs): Session Wrap Up
 
 Log everything from this session and push to GitHub. This covers the whole session's work, not just already-staged files - findings, fixes, replies, and open items discussed but not yet written down.
 
-## Step 1: Log the session into master-tracker.md
+## Step 1: Log the session into Google Ads Tasks/master-tracker.md
 
-Before checking git status, review the conversation and make sure `master-tracker.md` reflects everything from this session:
+Before checking git status, review the conversation and make sure `Google Ads Tasks/master-tracker.md` reflects everything from this session:
 - New items completed - move/add to "Completed" with today's date
 - New items discovered or still open - add to "Immediate - Outstanding"
 - Any new lessons learned about the account/site/client - add to "Lessons learned" if applicable
@@ -30,7 +30,7 @@ List all changed/new files, not just the tracker - check for anything else touch
 Add the specific files that changed this session. Do not use `git add -A` blindly - review the list first in case anything sensitive or unrelated shows up.
 
 ```bash
-git add master-tracker.md
+git add "Google Ads Tasks/master-tracker.md"
 # Add any other specific files that changed this session
 ```
 
