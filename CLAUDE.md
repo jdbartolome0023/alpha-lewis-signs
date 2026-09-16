@@ -39,9 +39,13 @@ Alpha Lewis Signs/
 ├── master-tracker.md                ← living tracker, pending + completed actions
 ├── website-audit-sep15-2026.md      ← pre-launch site audit
 ├── index.html                       ← July 2026 competitor research report (pricing now stale)
+├── weekly-reports/
+│   └── week-*.md                    ← Mon-Fri task summaries for Kim
 ├── .claude/
 │   ├── commands/
-│   │   └── signee-startup.md        ← session startup skill
+│   │   ├── signee-startup.md        ← session startup skill
+│   │   ├── signee-wrapup.md         ← session wrap-up skill (log, commit, push)
+│   │   └── signee-weekly.md         ← Mon-Fri weekly task report for Kim
 │   └── skills/                      ← PPC audit skill set (account-auditor + 10 specialists)
 ```
 
