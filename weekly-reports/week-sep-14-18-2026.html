@@ -2,7 +2,6 @@
 <style>
   :root{
     --paper:#faf4e4;
-    --paper-alt:#f6ebce;
     --panel:#ffffff;
     --ink:#533110;
     --muted:#8a6a45;
@@ -10,42 +9,40 @@
     --blue:#9cccee;
     --blue-ink:#2f5a72;
     --lavender:#d9d5eb;
-    --lavender-ink:#4a4470;
-    --rust:#a96320;
-    --rust-bg:#f3e2cf;
-    --shadow: 0 1px 2px rgba(83,49,16,.06), 0 10px 28px -14px rgba(83,49,16,.22);
+    --lavender-deep:#c3bce0;
+    --brown-deep:#3d2510;
+    --cream-on-brown:#f7ecd4;
+    --shadow: 0 1px 2px rgba(83,49,16,.06), 0 12px 30px -16px rgba(83,49,16,.25);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --paper:#3a2410;
-      --paper-alt:#4a2f14;
-      --panel:#442a12;
+      --paper:#2a1a0c;
+      --panel:#3d2510;
       --ink:#f7ecd4;
       --muted:#cdab7f;
-      --line:#5c3c1a;
+      --line:#54371a;
       --blue:#9cccee;
       --blue-ink:#dff0fb;
       --lavender:#d9d5eb;
-      --lavender-ink:#efedf7;
-      --rust:#e2a15c;
-      --rust-bg:#5c3c1a;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 28px -14px rgba(0,0,0,.55);
+      --lavender-deep:#c3bce0;
+      --brown-deep:#1e1208;
+      --cream-on-brown:#f7ecd4;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 30px -16px rgba(0,0,0,.6);
     }
   }
   :root[data-theme="dark"]{
-    --paper:#3a2410;
-    --paper-alt:#4a2f14;
-    --panel:#442a12;
+    --paper:#2a1a0c;
+    --panel:#3d2510;
     --ink:#f7ecd4;
     --muted:#cdab7f;
-    --line:#5c3c1a;
+    --line:#54371a;
     --blue:#9cccee;
     --blue-ink:#dff0fb;
     --lavender:#d9d5eb;
-    --lavender-ink:#efedf7;
-    --rust:#e2a15c;
-    --rust-bg:#5c3c1a;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 28px -14px rgba(0,0,0,.55);
+    --lavender-deep:#c3bce0;
+    --brown-deep:#1e1208;
+    --cream-on-brown:#f7ecd4;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 30px -16px rgba(0,0,0,.6);
   }
 
   *{box-sizing:border-box;}
@@ -54,56 +51,63 @@
     color:var(--ink);
     margin:0;
     font-family:"Poppins", system-ui, -apple-system, sans-serif;
-    padding-inline:20px;
-    padding-block:44px 64px;
+    padding-inline:0;
+    padding-block:0 64px;
     display:flex;
-    justify-content:center;
+    flex-direction:column;
+    align-items:center;
   }
   main{width:100%;max-width:760px;}
+  .gutter{padding-inline:20px;}
 
-  .eyebrow{
-    font-family:"Poppins", sans-serif;
-    text-transform:uppercase;
-    letter-spacing:.12em;
-    font-weight:600;
-    font-size:.72rem;
-    color:var(--muted);
+  h1,h2,.wordmark{
+    font-family:"Baloo 2", "Poppins", sans-serif;
+    font-weight:800;
   }
+
+  /* ---- Marquee strip ---- */
+  .marquee{
+    width:100%;
+    background:var(--blue);
+    color:var(--blue-ink);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:8px 0;
+    font-weight:700;
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+  .marquee span{padding-inline:18px;}
 
   /* ---- Header ---- */
   header{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:20px;
-    box-shadow:var(--shadow);
-    padding:28px 30px;
-    margin-bottom:24px;
+    padding:26px 20px 22px;
   }
   .brandrow{
     display:flex;
     align-items:center;
-    gap:14px;
-    margin-bottom:18px;
+    gap:12px;
+    margin-bottom:16px;
   }
   .mark{
-    width:38px;height:38px;border-radius:50%;
+    width:40px;height:40px;border-radius:50%;
     background:var(--blue);
     flex:none;
     display:flex;align-items:center;justify-content:center;
-    font-weight:800;color:var(--blue-ink);font-size:1.1rem;
+    font-weight:800;color:var(--blue-ink);font-size:1.2rem;
+    font-family:"Baloo 2", sans-serif;
   }
-  h1{
-    font-family:"Poppins", sans-serif;
-    font-weight:800;
-    font-size:1.7rem;
-    margin:0;
+  .wordmark{
+    font-size:1.5rem;
     letter-spacing:-.01em;
-    text-wrap:balance;
+    line-height:1;
   }
   .period{
-    font-size:.95rem;
+    font-size:.92rem;
     color:var(--muted);
-    margin-top:2px;
+    margin-top:3px;
+    font-weight:500;
   }
   .statusrow{
     display:flex;
@@ -115,54 +119,47 @@
     font-weight:600;
     padding:6px 14px;
     border-radius:999px;
-  }
-  .pill.blue{background:var(--blue);color:var(--blue-ink);}
-  .pill.lav{background:var(--lavender);color:var(--lavender-ink);}
-
-  /* ---- Section panels ---- */
-  section{
     background:var(--panel);
     border:1px solid var(--line);
-    border-radius:20px;
-    box-shadow:var(--shadow);
-    margin-bottom:20px;
-    padding:26px 30px 8px;
-  }
-  section .heading{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-    margin-bottom:18px;
-  }
-  section h2{
-    font-family:"Poppins", sans-serif;
-    font-weight:700;
-    font-size:1.15rem;
-    margin:0;
-  }
-  section .count{
-    margin-left:auto;
-    font-size:.8rem;
-    color:var(--muted);
-    font-weight:500;
   }
 
-  ul.tasklist{
-    list-style:none;
-    margin:0;
-    padding:0;
+  /* ---- Full-bleed color block sections ---- */
+  .block{
+    border-radius:26px;
+    margin:0 20px 20px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
   }
+  .block.lavender{background:var(--lavender);}
+  .block.brown{background:var(--brown-deep);color:var(--cream-on-brown);}
+  .block-inner{padding:26px 26px 8px;}
+  .block .eyebrow{
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-size:.72rem;
+    opacity:.65;
+  }
+  .block h2{
+    font-size:1.3rem;
+    margin:2px 0 18px;
+  }
+  .block.brown h2{color:var(--cream-on-brown);}
+  .block.lavender h2{color:var(--ink);}
+
+  ul.tasklist{list-style:none;margin:0;padding:0;}
   ul.tasklist li{
-    padding:16px 0;
-    border-top:1px solid var(--line);
+    padding:15px 0;
+    border-top:1px solid rgba(0,0,0,.08);
     display:flex;
-    gap:14px;
+    gap:13px;
     align-items:flex-start;
   }
+  .block.brown ul.tasklist li{border-top:1px solid rgba(255,255,255,.12);}
   ul.tasklist li:first-child{border-top:none;}
   ul.tasklist .chip{
     flex:none;
-    font-size:.68rem;
+    font-size:.66rem;
     font-weight:700;
     text-transform:uppercase;
     letter-spacing:.04em;
@@ -170,58 +167,100 @@
     border-radius:999px;
     margin-top:2px;
     white-space:nowrap;
+    background:var(--panel);
+    color:var(--ink);
   }
-  .chip.done{background:var(--blue);color:var(--blue-ink);}
-  .chip.wait{background:var(--rust-bg);color:var(--rust);}
+  .block.brown .chip{background:var(--blue);color:var(--blue-ink);}
   ul.tasklist .body{flex:1;}
-  ul.tasklist .body p{margin:0;line-height:1.55;font-size:.95rem;}
+  ul.tasklist .body p{margin:0;line-height:1.55;font-size:.94rem;}
   ul.tasklist .body .who{
     display:block;
     margin-top:6px;
-    font-size:.8rem;
-    color:var(--muted);
+    font-size:.78rem;
+    opacity:.75;
     font-weight:500;
   }
 
-  ol.nextlist{
-    list-style:none;
-    counter-reset:step;
-    margin:0;
-    padding:0;
+  /* ---- Checklist (cream panel) ---- */
+  section.checklist{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:26px;
+    box-shadow:var(--shadow);
+    margin:0 20px 20px;
+    padding:26px 26px 10px;
   }
-  ol.nextlist li{
-    counter-increment:step;
-    padding:16px 0;
-    border-top:1px solid var(--line);
+  section.checklist > .heading{
+    margin-bottom:6px;
+  }
+  section.checklist > .heading h2{font-size:1.3rem;margin:2px 0 4px;}
+  .checklist-sub{font-size:.86rem;color:var(--muted);margin-bottom:18px;}
+
+  .phase{margin-bottom:22px;}
+  .phase-head{
     display:flex;
-    gap:14px;
-    align-items:baseline;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
   }
-  ol.nextlist li:first-child{border-top:none;}
-  ol.nextlist li::before{
-    content:counter(step);
-    font-weight:700;
-    font-size:.82rem;
-    color:var(--blue-ink);
-    background:var(--blue);
-    border-radius:50%;
-    width:24px;height:24px;
+  .phase-num{
+    width:24px;height:24px;border-radius:50%;
+    background:var(--blue);color:var(--blue-ink);
+    font-size:.76rem;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
     flex:none;
+  }
+  .phase-title{font-weight:700;font-size:.98rem;}
+  .phase-count{
+    margin-left:auto;
+    font-size:.76rem;
+    color:var(--muted);
+    font-weight:600;
+    font-variant-numeric:tabular-nums;
+  }
+  ul.checkrows{list-style:none;margin:0 0 0 34px;padding:0;}
+  ul.checkrows li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:7px 0;
+    font-size:.92rem;
+    line-height:1.5;
+  }
+  .box{
+    flex:none;
+    width:17px;height:17px;
+    border-radius:5px;
+    border:2px solid var(--blue);
+    margin-top:3px;
     display:flex;align-items:center;justify-content:center;
   }
-  ol.nextlist p{margin:0;font-size:.95rem;line-height:1.55;}
+  li.done .box{background:var(--blue);}
+  li.done .box::after{
+    content:"";
+    width:8px;height:5px;
+    border-left:2px solid var(--blue-ink);
+    border-bottom:2px solid var(--blue-ink);
+    transform:rotate(-45deg) translate(0,-1px);
+  }
+  li.done span.txt{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line);}
+  li:not(.done) span.txt{color:var(--ink);}
 
   footer{
     text-align:center;
     color:var(--muted);
     font-size:.8rem;
-    margin-top:28px;
+    padding:8px 20px 0;
     font-weight:500;
   }
 </style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+
+<div class="marquee">
+  <span>SIGNEE &middot; WEEKLY UPDATE &middot; SIGNEE &middot; WEEKLY UPDATE &middot; SIGNEE &middot; WEEKLY UPDATE &middot; SIGNEE &middot; WEEKLY UPDATE &middot;</span>
+</div>
 
 <main>
 
@@ -229,79 +268,152 @@
     <div class="brandrow">
       <div class="mark">S</div>
       <div>
-        <h1>Signee &mdash; Weekly Update</h1>
-        <div class="period">Week of September 14&ndash;18, 2026</div>
+        <div class="wordmark">Signee</div>
+        <div class="period">Weekly update &middot; September 14&ndash;18, 2026</div>
       </div>
     </div>
     <div class="statusrow">
-      <span class="pill blue">Account setup in progress</span>
-      <span class="pill lav">Alpha Lewis Signs</span>
+      <span class="pill">Account setup in progress</span>
+      <span class="pill">Alpha Lewis Signs</span>
     </div>
   </header>
 
-  <section>
-    <div class="heading">
-      <span class="eyebrow">This week</span>
+  <div class="block lavender">
+    <div class="block-inner">
+      <div class="eyebrow">This week</div>
       <h2>What I did</h2>
-      <span class="count">3 items</span>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Built the Google Ads account for Signee and set up the first Search campaign draft &mdash; targeting Australia, goal set to track purchases, keyword themes populated from the product catalogue.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Sent account access invitations to both Kim and Nic, with full admin rights so either of you can log in and manage the account directly.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Checked the live site end to end for existing tracking &mdash; confirmed nothing is currently connected (no analytics, no tag manager, no ads tracking). This settles the open question from our first call about whether a tracking setup already existed from the earlier SEO work: it doesn't, so we're building clean.</p>
+          </div>
+        </li>
+      </ul>
     </div>
-    <ul class="tasklist">
-      <li>
-        <span class="chip done">Done</span>
-        <div class="body">
-          <p>Built the Google Ads account for Signee and set up the first Search campaign draft &mdash; targeting Australia, goal set to track purchases, keyword themes populated from the product catalogue.</p>
-        </div>
-      </li>
-      <li>
-        <span class="chip done">Done</span>
-        <div class="body">
-          <p>Sent account access invitations to both Kim and Nic, with full admin rights so either of you can log in and manage the account directly.</p>
-        </div>
-      </li>
-      <li>
-        <span class="chip done">Done</span>
-        <div class="body">
-          <p>Checked the live site end to end for existing tracking &mdash; confirmed nothing is currently connected (no analytics, no tag manager, no ads tracking). This settles the open question from our first call about whether a tracking setup already existed from the earlier SEO work: it doesn't, so we're building clean.</p>
-        </div>
-      </li>
-    </ul>
-  </section>
+  </div>
 
-  <section>
-    <div class="heading">
-      <span class="eyebrow">Blocking</span>
+  <div class="block brown">
+    <div class="block-inner">
+      <div class="eyebrow">Blocking</div>
       <h2>Waiting on you</h2>
-      <span class="count">2 items</span>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">Needed</span>
+          <div class="body">
+            <p>Accept the Google Ads invitation sent to kim@alphalewissigns.com.au and nic@alphalewissigns.com.au &mdash; check your inbox for the invite email. Full instructions are in the separate email I sent.</p>
+            <span class="who">From: Kim or Nic</span>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Needed</span>
+          <div class="body">
+            <p>Add the business card to the account's billing once you're in &mdash; this has to come from your side since it needs the actual business details on file. Also covered step by step in that email.</p>
+            <span class="who">From: Kim or Nic</span>
+          </div>
+        </li>
+      </ul>
     </div>
-    <ul class="tasklist">
-      <li>
-        <span class="chip wait">Needed</span>
-        <div class="body">
-          <p>Accept the Google Ads invitation sent to kim@alphalewissigns.com.au and nic@alphalewissigns.com.au &mdash; check your inbox for the invite email. Full instructions are in the separate email I sent.</p>
-          <span class="who">From: Kim or Nic</span>
-        </div>
-      </li>
-      <li>
-        <span class="chip wait">Needed</span>
-        <div class="body">
-          <p>Add the business card to the account's billing once you're in &mdash; this has to come from your side since it needs the actual business details on file. Also covered step by step in that email.</p>
-          <span class="who">From: Kim or Nic</span>
-        </div>
-      </li>
-    </ul>
-  </section>
+  </div>
 
-  <section>
+  <section class="checklist">
     <div class="heading">
-      <span class="eyebrow">Coming up</span>
-      <h2>Next steps</h2>
-      <span class="count">3 steps</span>
+      <div class="eyebrow">Ground up</div>
+      <h2>The full setup checklist</h2>
     </div>
-    <ol class="nextlist">
-      <li><p>Confirm the account's country and currency are set correctly once billing is in, before anything else moves forward.</p></li>
-      <li><p>Install analytics and conversion tracking on the site, so we can actually measure what the ads bring in.</p></li>
-      <li><p>Re-check current pricing across the full product range and lock in the campaign structure, then start building out the ads themselves.</p></li>
-    </ol>
+    <p class="checklist-sub">Everything between here and campaigns actually running, so you can see the whole road, not just this week's slice.</p>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-num">1</span>
+        <span class="phase-title">Research</span>
+        <span class="phase-count">3/5</span>
+      </div>
+      <ul class="checkrows">
+        <li class="done"><span class="box"></span><span class="txt">Competitor research</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Pre-launch website audit</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Confirmed no tracking currently live</span></li>
+        <li><span class="box"></span><span class="txt">Re-check current pricing across all 10 products</span></li>
+        <li><span class="box"></span><span class="txt">Confirm signeesigns.com.au is the final site (vs. a staging version)</span></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-num">2</span>
+        <span class="phase-title">Account &amp; Access</span>
+        <span class="phase-count">3/7</span>
+      </div>
+      <ul class="checkrows">
+        <li class="done"><span class="box"></span><span class="txt">Google Ads account created</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Search campaign draft built</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Admin invites sent to Kim and Nic</span></li>
+        <li><span class="box"></span><span class="txt">Kim or Nic accepts the invite</span></li>
+        <li><span class="box"></span><span class="txt">Kim or Nic completes billing setup</span></li>
+        <li><span class="box"></span><span class="txt">Confirm account settings are correct once billing is in</span></li>
+        <li><span class="box"></span><span class="txt">Connect the account to my reporting tools</span></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-num">3</span>
+        <span class="phase-title">Tracking Setup</span>
+        <span class="phase-count">0/7</span>
+      </div>
+      <ul class="checkrows">
+        <li><span class="box"></span><span class="txt">Create the analytics property (GA4)</span></li>
+        <li><span class="box"></span><span class="txt">Build the tag manager container (GTM)</span></li>
+        <li><span class="box"></span><span class="txt">Get website edit access from Nic to install it</span></li>
+        <li><span class="box"></span><span class="txt">Set up purchase tracking</span></li>
+        <li><span class="box"></span><span class="txt">Connect purchase tracking to Google Ads</span></li>
+        <li><span class="box"></span><span class="txt">Test with a real order before trusting the numbers</span></li>
+        <li><span class="box"></span><span class="txt">Verify the site with Google Search Console</span></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-num">4</span>
+        <span class="phase-title">Campaign Build</span>
+        <span class="phase-count">0/7</span>
+      </div>
+      <ul class="checkrows">
+        <li><span class="box"></span><span class="txt">Decide the campaign structure (by product vs. by use case)</span></li>
+        <li><span class="box"></span><span class="txt">Build out the ad groups</span></li>
+        <li><span class="box"></span><span class="txt">Write the ad copy, using re-checked pricing</span></li>
+        <li><span class="box"></span><span class="txt">Build the negative keyword list</span></li>
+        <li><span class="box"></span><span class="txt">Add sitelinks and callouts</span></li>
+        <li><span class="box"></span><span class="txt">Set budget and bidding</span></li>
+        <li><span class="box"></span><span class="txt">Assess a Shopping campaign alongside Search</span></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-num">5</span>
+        <span class="phase-title">Launch &amp; Monitor</span>
+        <span class="phase-count">0/4</span>
+      </div>
+      <ul class="checkrows">
+        <li><span class="box"></span><span class="txt">Final QA before going live</span></li>
+        <li><span class="box"></span><span class="txt">Launch</span></li>
+        <li><span class="box"></span><span class="txt">First-week monitoring check</span></li>
+        <li><span class="box"></span><span class="txt">Move to full performance reporting</span></li>
+      </ul>
+    </div>
   </section>
 
   <footer>Prepared by Josette &middot; internal review draft</footer>

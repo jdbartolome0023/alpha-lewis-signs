@@ -11,17 +11,50 @@
 - **Google Ads client account:** Signee, CID **715-970-4117**
   - First attempt CID 838-398-4347 was discarded Sep 16 2026 - locked to Philippine Standard Time/PHP by mistake, unrecoverable, see "Lessons learned" below.
 
-## Immediate - Outstanding
+## Full Setup Checklist (ground-up, research through launch)
 
-- [ ] **Waiting on Kim/Nic to accept Google Ads invite** (sent Sep 16 2026, Admin access, both kim@alphalewissigns.com.au and nic@alphalewissigns.com.au) - check acceptance status each session
-- [ ] **Waiting on Kim/Nic to complete billing setup** on the Signee account (Admin > Billing > Create new payments profile, Billing Country = Australia, their real business address + card) - this is what will actually lock in the correct AUD/Sydney time zone. Until this is done the account is still in draft with Philippine Standard Time as a placeholder.
-- [ ] Once billing is confirmed done: verify via **Admin > Account settings** (not the wizard screens) that Time zone shows an Australian zone and currency is AUD - do not trust the "Enter payment details" wizard screen's live preview, it has shown wrong/stale info before
-- [ ] Build GTM + GA4 + Google Ads conversion tag - **nothing is live on the site yet**, confirmed twice now (initial website-audit-sep15-2026.md, and a second direct re-check Sep 16 2026 covering homepage source, a product page, and DNS TXT records). No GTM container ID, no GA4 measurement ID, no Google Ads AW- tag, no Meta pixel, no Search Console verification (no meta tag, no `google-site-verification=` DNS TXT record) anywhere. This resolves Kim's "not sure if a GA4 property already exists" open question from the original email thread - there is nothing live to find, whether or not an orphaned property exists in someone's GA4 admin panel, none is connected to the site.
-- [ ] Side-finding from the DNS check: they use **Klaviyo** for email marketing (verification TXT record present) - worth knowing for any future customer-list/retargeting work with Meta
+### Phase 1: Research
+- [x] Competitor research (July 2026 report - pricing now stale, see Phase 4)
+- [x] Pre-launch website audit (structure, collections, Merchant Center readiness)
+- [x] Tracking audit - confirmed nothing live (GTM/GA4/Ads tag/Meta pixel/GSC), re-confirmed Sep 16 2026 via source + DNS check
 - [ ] Re-verify current pricing across all 10 products before writing any ad copy (July report pricing is stale - Walter moved from $374 to $449-$548)
-- [ ] Decide campaign structure: product-type groups (Walter/Winnie/Theodore/Flossy etc.) vs. use-case groups (cafe/restaurant/retail/salon/hotel collections) vs. both
 - [ ] Confirm whether "new staging site" mentioned in the original July research report has landed, or if signeesigns.com.au is still the one to build against (seems to be current live site as of Sep 16, but worth a direct confirm with Kim)
+
+### Phase 2: Account & Access Setup
+- [x] Google Ads account created (Signee, CID 715-970-4117) under JDD Bartolome MCC
+- [x] Search campaign draft built (goal = Purchases, Locations = Australia, keyword themes populated)
+- [x] Admin invites sent to Kim and Nic
+- [ ] **Waiting on Kim/Nic to accept the Google Ads invite** (sent Sep 16 2026) - check status each session
+- [ ] **Waiting on Kim/Nic to complete billing setup** (Admin > Billing > Create new payments profile, Billing Country = Australia, their real business address + card) - this is what actually locks in the correct AUD/Sydney time zone. Until done, the account sits in draft with Philippine Standard Time as a placeholder.
+- [ ] Once billing is confirmed done: verify via **Admin > Account settings** (not the wizard screens) that Time zone shows an Australian zone and currency is AUD - do not trust the wizard's live preview, it has shown wrong/stale info before
 - [ ] Set up Google Ads MCP connection for Signee (mirrors Kenny Fuels/Ninja Digital pattern) once account access is fully live
+
+### Phase 3: Tracking Setup
+- [ ] Create GA4 property (confirmed none exists/is connected - see Phase 1)
+- [ ] Build GTM container
+- [ ] Get website (Shopify) edit access from Nic to install the GTM snippet
+- [ ] Set up the purchase/conversion event in GA4
+- [ ] Import the GA4 conversion into Google Ads as the primary conversion action (currently set to manual/code-based, per the account build)
+- [ ] Test end to end with a real test order before trusting any reported number
+- [ ] Google Search Console - verify the domain (optional but useful for organic visibility alongside paid)
+
+### Phase 4: Campaign Build
+- [ ] Decide campaign structure: product-type groups (Walter/Winnie/Theodore/Flossy etc.) vs. use-case groups (cafe/restaurant/retail/salon/hotel collections) vs. both
+- [ ] Build out ad groups per the chosen structure
+- [ ] Write ad copy (headlines/descriptions) per group, using re-verified pricing from Phase 1
+- [ ] Negative keyword list
+- [ ] Ad extensions (sitelinks, callouts, structured snippets)
+- [ ] Set budget and bid strategy
+- [ ] Consider a Shopping campaign - Merchant Center basics already looked ready per the website audit, worth a separate feed/eligibility check when we get here
+
+### Phase 5: Launch & Monitor
+- [ ] QA the full campaign before going live (tracking firing correctly, budget/targeting correct, ads approved)
+- [ ] Launch
+- [ ] First-week monitoring check
+- [ ] Weekly reporting moves from task-summary format to real performance metrics once there's live spend/conversion data (see `kf-google-weekly.md` in the Kenny Fuels project for what that format looks like)
+
+### Open side-note
+- [ ] They use **Klaviyo** for email marketing (verification TXT record present, found during the Phase 1 tracking audit) - worth knowing for any future customer-list/retargeting work with Meta
 
 ## Lessons learned (Sep 16 2026 Google Ads setup)
 

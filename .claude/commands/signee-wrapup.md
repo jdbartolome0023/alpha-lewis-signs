@@ -11,7 +11,7 @@ Log everything from this session and push to GitHub. This covers the whole sessi
 
 Before checking git status, review the conversation and make sure `Google Ads Tasks/master-tracker.md` reflects everything from this session:
 - New items completed - move/add to "Completed" with today's date
-- New items discovered or still open - add to "Immediate - Outstanding"
+- New items discovered or still open - add to the relevant phase in "Full Setup Checklist" (or a new phase if it genuinely does not fit)
 - Any new lessons learned about the account/site/client - add to "Lessons learned" if applicable
 
 Do not skip this step even if it feels redundant - the tracker is the record, not the chat log.
