@@ -30,8 +30,8 @@
 - [ ] Set up Google Ads MCP connection for Signee (mirrors Kenny Fuels/Ninja Digital pattern) once account access is fully live
 
 ### Phase 3: Tracking Setup
-- [ ] Create GA4 property (confirmed none exists/is connected - see Phase 1)
-- [ ] Build GTM container
+- [x] Create GA4 property (Signee account, property "Signee - signeesigns.com.au", Measurement ID G-16K9H45R2V, Melbourne time/AUD, under jddbartolome@gmail.com)
+- [x] Build GTM container (container ID GTM-NFD4DZ2H, GA4 Configuration tag built and published firing on all pages)
 - [ ] Get website (Shopify) edit access from Nic to install the GTM snippet
 - [ ] Set up the purchase/conversion event in GA4
 - [ ] Import the GA4 conversion into Google Ads as the primary conversion action (currently set to manual/code-based, per the account build)
@@ -67,6 +67,7 @@
 
 ## Completed
 
+- **Sep 17 2026:** Built GA4 property and GTM container ahead of Google Ads account access going live (these don't depend on Kim/Nic accepting the Ads invite). GA4: account "Signee", property "Signee - signeesigns.com.au", Australia/Melbourne time zone, AUD currency, Business & Industrial category, objectives Generate leads + Drive sales, web data stream "Signee Website" (stream ID 15792513870, Measurement ID G-16K9H45R2V), Enhanced measurement on. GTM: account "Signee" (Australia), container "signeesigns.com.au" (GTM-NFD4DZ2H, Web), GA4 Configuration tag built pointing to G-16K9H45R2V firing on Initialization - All Pages, published as Version 2. Both built under jddbartolome@gmail.com to mirror the existing Ads MCC pattern; Kim and Nic can be added as Administrators on both once they have Google identities tied to their business emails (same friction as the pending Ads invite - kim@/nic@alphalewissigns.com.au are Outlook-hosted, not Google Workspace). Next tracking step: get Shopify edit access from Nic to paste the GTM snippet into the site's `<head>`/`<body>`.
 - **Sep 15 2026:** Deal closed, Josette handling Google Ads. Pre-launch website audit done (website-audit-sep15-2026.md).
 - **Sep 16 2026:** Google Ads account created (Signee, CID 715-970-4117) under JDD Bartolome MCC. Search campaign draft built: goal = Purchases (manual conversion setup, not URL-based), Locations = Australia, keywords/search themes populated. Admin invites sent to Kim and Nic. Step-by-step instructional email sent to Kim covering invite acceptance + billing setup.
 - **Sep 16 2026:** Local project folder set up (`Desktop/Personal/Alpha Lewis Signs`, cloned from GitHub). Confirmed no GTM/GA4/Ads tag/Meta pixel/GSC verification live on site (see "Immediate - Outstanding" for detail). Built three session skills: `/signee-startup`, `/signee-wrapup`, `/signee-weekly`. Reorganized tracker into `Google Ads Tasks/` to mirror the Kenny Fuels project structure. Pulled Signee's real brand identity from signeesigns.com.au (cream/brown/sky-blue/lavender palette, Poppins typeface, logo colors) and built the first weekly report as a branded HTML page (`weekly-reports/week-sep-14-18-2026.html`), live at the repo's GitHub Pages site. All pushed to `jdbartolome0023/alpha-lewis-signs`.
