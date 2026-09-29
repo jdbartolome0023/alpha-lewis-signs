@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "ga4-signee": {
+      "type": "stdio",
+      "command": "/Users/josette/Desktop/Personal/Google Ads MCP/google_ads_mcp-main/.venv/bin/python3",
+      "args": [
+        "/Users/josette/signee-mcp-servers/ga4_server_signee.py"
+      ],
+      "env": {
+        "GA4_TOKEN_PATH": "/Users/josette/.ga4-mcp-signee/token.json"
+      }
+    }
+  }
+}
