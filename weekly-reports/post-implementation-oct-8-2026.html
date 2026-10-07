@@ -1,0 +1,529 @@
+<title>Signee Launch Report</title>
+<style>
+  :root{
+    --paper:#faf4e4;
+    --panel:#ffffff;
+    --ink:#533110;
+    --muted:#8a6a45;
+    --line:#e8dfc4;
+    --blue:#9cccee;
+    --blue-ink:#2f5a72;
+    --lavender:#d9d5eb;
+    --lavender-deep:#c3bce0;
+    --brown-deep:#3d2510;
+    --cream-on-brown:#f7ecd4;
+    --shadow: 0 1px 2px rgba(83,49,16,.06), 0 12px 30px -16px rgba(83,49,16,.25);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#2a1a0c;
+      --panel:#3d2510;
+      --ink:#f7ecd4;
+      --muted:#cdab7f;
+      --line:#54371a;
+      --blue:#9cccee;
+      --blue-ink:#dff0fb;
+      --lavender:#d9d5eb;
+      --lavender-deep:#c3bce0;
+      --brown-deep:#1e1208;
+      --cream-on-brown:#f7ecd4;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 30px -16px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#2a1a0c;
+    --panel:#3d2510;
+    --ink:#f7ecd4;
+    --muted:#cdab7f;
+    --line:#54371a;
+    --blue:#9cccee;
+    --blue-ink:#dff0fb;
+    --lavender:#d9d5eb;
+    --lavender-deep:#c3bce0;
+    --brown-deep:#1e1208;
+    --cream-on-brown:#f7ecd4;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 30px -16px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    margin:0;
+    font-family:"Poppins", system-ui, -apple-system, sans-serif;
+    padding-inline:0;
+    padding-block:0 64px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  main{width:100%;max-width:760px;}
+  .gutter{padding-inline:20px;}
+
+  h1,h2,.wordmark{
+    font-family:"Baloo 2", "Poppins", sans-serif;
+    font-weight:800;
+  }
+
+  /* ---- Marquee strip ---- */
+  .marquee{
+    width:100%;
+    background:var(--blue);
+    color:var(--blue-ink);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:8px 0;
+    font-weight:700;
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+  .marquee span{padding-inline:18px;}
+
+  /* ---- Header ---- */
+  header{
+    padding:26px 20px 22px;
+  }
+  .brandrow{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+  }
+  .mark{
+    width:40px;height:40px;border-radius:50%;
+    background:var(--blue);
+    flex:none;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:var(--blue-ink);font-size:1.2rem;
+    font-family:"Baloo 2", sans-serif;
+  }
+  .wordmark{
+    font-size:1.5rem;
+    letter-spacing:-.01em;
+    line-height:1;
+  }
+  .period{
+    font-size:.92rem;
+    color:var(--muted);
+    margin-top:3px;
+    font-weight:500;
+  }
+  .statusrow{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .pill{
+    font-size:.78rem;
+    font-weight:600;
+    padding:6px 14px;
+    border-radius:999px;
+    background:var(--panel);
+    border:1px solid var(--line);
+  }
+
+  /* ---- Full-bleed color block sections ---- */
+  .block{
+    border-radius:26px;
+    margin:0 20px 20px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .block.lavender{background:var(--lavender);color:var(--brown-deep);}
+  .block.brown{background:var(--brown-deep);color:var(--cream-on-brown);}
+  .block-inner{padding:26px 26px 8px;}
+  .block .eyebrow{
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-size:.72rem;
+    opacity:.65;
+  }
+  .block h2{
+    font-size:1.3rem;
+    margin:2px 0 18px;
+  }
+  .block.brown h2{color:var(--cream-on-brown);}
+  .block.lavender h2{color:var(--brown-deep);}
+
+  ul.tasklist{list-style:none;margin:0;padding:0;}
+  ul.tasklist li{
+    padding:15px 0;
+    border-top:1px solid rgba(0,0,0,.08);
+    display:flex;
+    gap:13px;
+    align-items:flex-start;
+  }
+  .block.brown ul.tasklist li{border-top:1px solid rgba(255,255,255,.12);}
+  ul.tasklist li:first-child{border-top:none;}
+  ul.tasklist .chip{
+    flex:none;
+    font-size:.66rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    padding:4px 10px;
+    border-radius:999px;
+    margin-top:2px;
+    white-space:nowrap;
+    background:var(--panel);
+    color:var(--ink);
+  }
+  .block.brown .chip{background:var(--blue);color:var(--blue-ink);}
+  .block.lavender .chip{background:#ffffff;color:var(--brown-deep);}
+  ul.tasklist .body{flex:1;}
+  ul.tasklist .body p{margin:0;line-height:1.55;font-size:.94rem;}
+  ul.tasklist .body .who{
+    display:block;
+    margin-top:6px;
+    font-size:.78rem;
+    opacity:.75;
+    font-weight:500;
+  }
+
+  /* ---- Checklist (cream panel) ---- */
+  section.checklist{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:26px;
+    box-shadow:var(--shadow);
+    margin:0 20px 20px;
+    padding:26px 26px 10px;
+  }
+  section.checklist > .heading{
+    margin-bottom:6px;
+  }
+  section.checklist > .heading h2{font-size:1.3rem;margin:2px 0 4px;}
+  .checklist-sub{font-size:.86rem;color:var(--muted);margin-bottom:18px;}
+
+  .phase{margin-bottom:22px;}
+  .phase-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .phase-num{
+    width:24px;height:24px;border-radius:50%;
+    background:var(--blue);color:var(--blue-ink);
+    font-size:.76rem;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    flex:none;
+  }
+  .phase-title{font-weight:700;font-size:.98rem;}
+  .phase-count{
+    margin-left:auto;
+    font-size:.76rem;
+    color:var(--muted);
+    font-weight:600;
+    font-variant-numeric:tabular-nums;
+  }
+  ul.checkrows{list-style:none;margin:0 0 0 34px;padding:0;}
+  ul.checkrows li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:7px 0;
+    font-size:.92rem;
+    line-height:1.5;
+  }
+  .box{
+    flex:none;
+    width:17px;height:17px;
+    border-radius:5px;
+    border:2px solid var(--blue);
+    margin-top:3px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  li.done .box{background:var(--blue);}
+  li.done .box::after{
+    content:"";
+    width:8px;height:5px;
+    border-left:2px solid var(--blue-ink);
+    border-bottom:2px solid var(--blue-ink);
+    transform:rotate(-45deg) translate(0,-1px);
+  }
+  li.done span.txt{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line);}
+  li:not(.done) span.txt{color:var(--ink);}
+
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:.8rem;
+    padding:8px 20px 0;
+    font-weight:500;
+  }
+
+  table.map{width:100%;border-collapse:collapse;font-size:.86rem;margin:4px 0 18px;}
+  table.map th{text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;opacity:.65;padding:8px 8px 8px 0;border-bottom:1px solid rgba(0,0,0,.12);}
+  table.map td{padding:10px 8px 10px 0;border-bottom:1px solid rgba(0,0,0,.08);vertical-align:top;line-height:1.45;}
+  .stats{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px;}
+  .stat{flex:1 1 130px;background:rgba(255,255,255,.7);border-radius:16px;padding:14px 16px;color:var(--brown-deep);}
+  .stat b{display:block;font-family:"Baloo 2","Poppins",sans-serif;font-size:1.35rem;line-height:1.1;}
+  .stat span{font-size:.76rem;opacity:.75;font-weight:500;}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+
+<div class="marquee">
+  <span>SIGNEE &middot; LAUNCH REPORT &middot; SIGNEE &middot; LAUNCH REPORT &middot; SIGNEE &middot; LAUNCH REPORT &middot; SIGNEE &middot; LAUNCH REPORT &middot;</span>
+</div>
+
+<main>
+
+  <header>
+    <div class="brandrow">
+      <div class="mark">S</div>
+      <div>
+        <div class="wordmark">Signee</div>
+        <div class="period">Post implementation report &middot; Google Ads launch &middot; October 8, 2026</div>
+      </div>
+    </div>
+    <div class="statusrow">
+      <span class="pill">Live since October 7</span>
+      <span class="pill">Search campaign: Australia</span>
+      <span class="pill">Alpha Lewis Signs</span>
+    </div>
+  </header>
+
+  <div class="block lavender">
+    <div class="block-inner">
+      <div class="eyebrow">At a glance</div>
+      <h2>Where things stand</h2>
+      <div class="stats">
+        <div class="stat"><b>1</b><span>Search campaign, live</span></div>
+        <div class="stat"><b>8</b><span>ad groups, one ad each</span></div>
+        <div class="stat"><b>A$40</b><span>per day, about A$1,216 a month</span></div>
+        <div class="stat"><b>Australia</b><span>only, English, Google Search</span></div>
+      </div>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">Status</span>
+          <div class="body">
+            <p><strong>The campaign is live and every ad is approved.</strong> I switched it on the morning of October 7 after confirming that a real order was recorded correctly in our reporting. Billing, the budget, the ads, the keywords and the targeting all check out as healthy in the account.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Early days</span>
+          <div class="body">
+            <p><strong>No ad has been shown yet, as of this morning.</strong> Google treats a brand new campaign on a brand new account cautiously for its first days, because it has no purchase history to learn from yet. I have checked the account and the site reporting and found nothing wrong, so I am leaving it alone rather than changing things and restarting that clock. I will tell you as soon as the first ads and clicks come through.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block brown">
+    <div class="block-inner">
+      <div class="eyebrow">Set up</div>
+      <h2>What I built, and the reason behind each choice</h2>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">Why</span>
+          <div class="body">
+            <p><strong>One Search campaign.</strong> People typing &ldquo;a frame sign&rdquo; or &ldquo;shop signage&rdquo; into Google are already looking to buy, which fits your goal of selling signs online. Search ads reach those people at the moment they are looking. I kept it to one campaign so the budget is not split too thin while we are learning what works.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Why</span>
+          <div class="body">
+            <p><strong>Eight ad groups, built around your range.</strong> Your site is organised two ways, by sign type and by the kind of business buying. I mirrored both, so someone searching for a blade sign lands on the blade sign collection and someone searching for cafe signage lands on the cafe collection. Sending each person to the page that matches what they typed is what tends to turn a click into an order.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Why</span>
+          <div class="body">
+            <p><strong>Phrase and exact match keywords only (51 in total).</strong> These make sure your ads appear for searches that closely match what you sell. I avoided broad matching on purpose. At this budget, broad matching tends to spend money on loosely related searches.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Why</span>
+          <div class="body">
+            <p><strong>39 negative keywords.</strong> These stop your ads showing for searches that will never become a sale: sign writing and installation services (that is the Alpha Lewis Signs side of the business, not Signee), do it yourself and free template searches, jobs, and unrelated signs such as road, real estate and zodiac signs. I have also kept George and Willy and Piece of Sign blocked for now, see the questions below.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Why</span>
+          <div class="body">
+            <p><strong>Australia only, Google Search only.</strong> You ship Australia wide, so ads are limited to people in or regularly in Australia. I turned off Google&rsquo;s search partner sites and the display network, so the budget goes to people actively searching on Google.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Why</span>
+          <div class="body">
+            <p><strong>A$40 a day with Google choosing the bids.</strong> This works out to about A$1,216 a month, in line with the A$1,200 a month we discussed on September 8. The bidding method is Maximize conversions with no target. Google has no purchase history for this account yet, so it needs room to learn. Once we have around 30 purchases I can move to a cost target set from your real numbers, not a guess.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Why</span>
+          <div class="body">
+            <p><strong>Only real purchases count.</strong> Google had automatically added other goals such as lead and call actions. I switched those off from steering the bidding, so the campaign is only trying to win sales and not form fills.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Why</span>
+          <div class="body">
+            <p><strong>Ad copy built from facts I checked on your site.</strong> Prices were re-checked on October 2 (for example Walter from A$449, Winnie from A$319, and A-frame signs from A$259). Free shipping Australia wide, volume discounts, no minimum order and adding your logo at checkout are all stated on your site. I did not use any claim I could not find there, so nothing in the ads mentions a guarantee.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Why</span>
+          <div class="body">
+            <p><strong>Extra links and highlights under the ads.</strong> Six sitelinks (cafe, restaurant, retail, salon, hotel, and the frequently asked questions page), six callouts (such as Free Aus-Wide Shipping and Powdercoated Aluminium) and a list of sign types. These take up more space on the results page and give shoppers a direct path to the right collection.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Why</span>
+          <div class="body">
+            <p><strong>A call button on the ads.</strong> Customers who would rather phone can do so straight from the ad. It currently rings the Alpha Lewis Signs main line, 03 9329 1244, and Google reports those calls to us. See the question below about a Signee only number.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block lavender">
+    <div class="block-inner">
+      <div class="eyebrow">Underneath</div>
+      <h2>The tracking that makes the numbers trustworthy</h2>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p><strong>Purchase tracking is built into your checkout.</strong> When someone completes an order, the sale and its value are sent to Google Analytics 4, and Google Ads reads sales from there. This is how the campaign knows which clicks turned into orders, and how I can report real results to you.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p><strong>Tested with a real order.</strong> Nic&rsquo;s test order on October 6 (A$259, the Mabel sign) appeared in Google Analytics 4 as a purchase, which is why I felt safe turning the campaign on. Nic also confirmed all Signee prices include goods and services tax (GST).</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p><strong>Used the analytics property your search engine optimisation team already runs.</strong> This keeps all your website data in one place and avoids two systems counting the same visit. I left their existing tag untouched.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p><strong>Google Tag Manager is installed on the site.</strong> This is the container that lets me add or change tracking without editing your theme code every time.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block brown">
+    <div class="block-inner">
+      <div class="eyebrow">Structure</div>
+      <h2>How the eight ad groups map to your range</h2>
+      <table class="map">
+        <tr><th>Ad group</th><th>Aimed at searches like</th><th>Lands on</th></tr>
+        <tr><td>A-Frame &amp; Sidewalk Signs</td><td>a frame sign, sandwich board sign, footpath sign</td><td>A-frame signs collection</td></tr>
+        <tr><td>Wall &amp; Hanging Signs</td><td>blade sign, hanging shop sign, projecting wall sign</td><td>Blade signs collection</td></tr>
+        <tr><td>Illuminated Signs</td><td>illuminated sign, lightbox sign, backlit sign</td><td>Illuminated signs collection</td></tr>
+        <tr><td>Open Closed Sign</td><td>open closed sign, open sign for shop window</td><td>Henry open closed sign page</td></tr>
+        <tr><td>Cafe &amp; Restaurant Signage</td><td>cafe sign, restaurant signage, bar signage</td><td>Cafe and coffee shop collection</td></tr>
+        <tr><td>Retail &amp; Salon Signage</td><td>shop signage, salon sign, retail store signage</td><td>Retail store collection</td></tr>
+        <tr><td>Hotel &amp; Accommodation Signage</td><td>hotel and accommodation signs</td><td>Hotel and accommodation collection</td></tr>
+        <tr><td>General Business Signage</td><td>business signage, custom shop sign, outdoor business sign</td><td>Signee home page</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="block lavender">
+    <div class="block-inner">
+      <div class="eyebrow">From here</div>
+      <h2>What to expect</h2>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">Now</span>
+          <div class="body">
+            <p><strong>Learning period, usually several days up to about two weeks.</strong> During this time I will not change the bids, budget or targeting, because every change restarts the learning. Results in this window can be uneven. That is expected and not a verdict on the campaign.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Week 1</span>
+          <div class="body">
+            <p><strong>First check.</strong> I will look at whether ads are showing, which searches are triggering them, how much has been spent, and whether the first real sale has come through from an ad. That first ad driven sale confirms the whole chain works from click to reported purchase.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Weeks 2 to 4</span>
+          <div class="body">
+            <p><strong>Trim and tighten.</strong> Once there is real search data I will add negative keywords for any irrelevant searches that slip through and note which ad groups are earning their budget.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">After that</span>
+          <div class="body">
+            <p><strong>Stage 2.</strong> If Search is converting, the plan is to add Google Shopping ads, which show your products with a photo and price. That needs a product feed set up with Google Merchant Center first. The move to a higher budget will be based on results, not on the calendar.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Ongoing</span>
+          <div class="body">
+            <p><strong>Weekly reports change shape.</strong> From next week they move from setup updates to real performance numbers: spend, clicks, sales and what I plan to do next.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block brown">
+    <div class="block-inner">
+      <div class="eyebrow">Your input</div>
+      <h2>Two questions for you</h2>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">Question</span>
+          <div class="body">
+            <p><strong>Do you want calls tracked, and on which number?</strong> The call button on the ads currently forwards to the Alpha Lewis Signs main line (03 9329 1244). If Signee has, or could have, its own number, calls would be easier to tell apart. If you would rather not have calls on the ads at all, I can remove it quickly.</p>
+            <span class="who">From: Kim or Nic</span>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Question</span>
+          <div class="body">
+            <p><strong>Should we bid on George and Willy and Piece of Sign?</strong> I have blocked searches for those brand names so your money does not go to people looking for them specifically. Bidding on them is possible, but it costs more per click and the shoppers are loyal to someone else. Your call on risk and budget.</p>
+            <span class="who">From: Kim or Nic</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block lavender">
+    <div class="block-inner">
+      <div class="eyebrow">Coming up</div>
+      <h2>Next up</h2>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">1</span>
+          <div class="body">
+            <p><strong>Confirm the first ads are showing and report back.</strong> I will send you a short note as soon as the first impressions and clicks appear.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">2</span>
+          <div class="body">
+            <p><strong>Remove the paused placeholder campaign.</strong> Google added a Performance Max campaign when the account was created. It has never run and is paused, and I will delete it so only Signee Search AU is left.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">3</span>
+          <div class="body">
+            <p><strong>First week review.</strong> Search terms, spend and the first sale, with any adjustments held until the learning period has had time to settle.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>Prepared by Josette</footer>
+
+</main>
