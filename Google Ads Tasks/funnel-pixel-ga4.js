@@ -44,7 +44,16 @@ async function send(name, params) {
   } catch (e) {}
 }
 
-analytics.subscribe('product_viewed', async (event) => {
+async function safe(eventName, fn) {
+  try {
+    await fn();
+  } catch (e) {
+    const n = String(eventName).replace(/[^a-z0-9_]/gi, '_').slice(0, 33);
+    await send('err_' + n, { msg: String(e).slice(0, 90) });
+  }
+}
+
+analytics.subscribe('product_viewed', (event) => safe('product_viewed', async () => {
   const v = event.data.productVariant;
   if (!v) return;
   await send('view_item', {
@@ -52,9 +61,9 @@ analytics.subscribe('product_viewed', async (event) => {
     value: v.price.amount,
     items: [{ item_id: v.product.id, item_name: v.product.title, price: v.price.amount, quantity: 1 }],
   });
-});
+}));
 
-analytics.subscribe('product_added_to_cart', async (event) => {
+analytics.subscribe('product_added_to_cart', (event) => safe('product_added_to_cart', async () => {
   const line = event.data.cartLine;
   if (!line) return;
   const m = line.merchandise;
@@ -63,9 +72,9 @@ analytics.subscribe('product_added_to_cart', async (event) => {
     value: m.price.amount * line.quantity,
     items: [{ item_id: m.product.id, item_name: m.product.title, price: m.price.amount, quantity: line.quantity }],
   });
-});
+}));
 
-analytics.subscribe('checkout_started', async (event) => {
+analytics.subscribe('checkout_started', (event) => safe('checkout_started', async () => {
   const c = event.data.checkout;
   if (!c) return;
   await send('begin_checkout', {
@@ -74,8 +83,8 @@ analytics.subscribe('checkout_started', async (event) => {
     items: c.lineItems.map((li) => ({
       item_id: li.variant && li.variant.product ? li.variant.product.id : undefined,
       item_name: li.title,
-      price: li.variant ? li.variant.price.amount : undefined,
+      price: li.variant && li.variant.price ? li.variant.price.amount : undefined,
       quantity: li.quantity,
     })),
   });
-});
+}));
