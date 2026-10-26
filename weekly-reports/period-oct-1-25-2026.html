@@ -1,0 +1,544 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signee Update October 1 to 25</title>
+<style>
+  :root{
+    --paper:#faf4e4;
+    --panel:#ffffff;
+    --ink:#533110;
+    --muted:#8a6a45;
+    --line:#e8dfc4;
+    --blue:#9cccee;
+    --blue-ink:#2f5a72;
+    --lavender:#d9d5eb;
+    --lavender-deep:#c3bce0;
+    --brown-deep:#3d2510;
+    --cream-on-brown:#f7ecd4;
+    --shadow: 0 1px 2px rgba(83,49,16,.06), 0 12px 30px -16px rgba(83,49,16,.25);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#2a1a0c;
+      --panel:#3d2510;
+      --ink:#f7ecd4;
+      --muted:#cdab7f;
+      --line:#54371a;
+      --blue:#9cccee;
+      --blue-ink:#dff0fb;
+      --lavender:#d9d5eb;
+      --lavender-deep:#c3bce0;
+      --brown-deep:#1e1208;
+      --cream-on-brown:#f7ecd4;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 30px -16px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#2a1a0c;
+    --panel:#3d2510;
+    --ink:#f7ecd4;
+    --muted:#cdab7f;
+    --line:#54371a;
+    --blue:#9cccee;
+    --blue-ink:#dff0fb;
+    --lavender:#d9d5eb;
+    --lavender-deep:#c3bce0;
+    --brown-deep:#1e1208;
+    --cream-on-brown:#f7ecd4;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 12px 30px -16px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    margin:0;
+    font-family:"Poppins", system-ui, -apple-system, sans-serif;
+    padding-inline:0;
+    padding-block:0 64px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  main{width:100%;max-width:760px;}
+  .gutter{padding-inline:20px;}
+
+  h1,h2,.wordmark{
+    font-family:"Baloo 2", "Poppins", sans-serif;
+    font-weight:800;
+  }
+
+  /* ---- Marquee strip ---- */
+  .marquee{
+    width:100%;
+    background:var(--blue);
+    color:var(--blue-ink);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:8px 0;
+    font-weight:700;
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+  .marquee span{padding-inline:18px;}
+
+  /* ---- Header ---- */
+  header{
+    padding:26px 20px 22px;
+  }
+  .brandrow{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+  }
+  .mark{
+    width:40px;height:40px;border-radius:50%;
+    background:var(--blue);
+    flex:none;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:var(--blue-ink);font-size:1.2rem;
+    font-family:"Baloo 2", sans-serif;
+  }
+  .wordmark{
+    font-size:1.5rem;
+    letter-spacing:-.01em;
+    line-height:1;
+  }
+  .period{
+    font-size:.92rem;
+    color:var(--muted);
+    margin-top:3px;
+    font-weight:500;
+  }
+  .statusrow{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .pill{
+    font-size:.78rem;
+    font-weight:600;
+    padding:6px 14px;
+    border-radius:999px;
+    background:var(--panel);
+    border:1px solid var(--line);
+  }
+
+  /* ---- Full-bleed color block sections ---- */
+  .block{
+    border-radius:26px;
+    margin:0 20px 20px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .block.lavender{background:var(--lavender);color:var(--brown-deep);}
+  .block.brown{background:var(--brown-deep);color:var(--cream-on-brown);}
+  .block-inner{padding:26px 26px 8px;}
+  .block .eyebrow{
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-size:.72rem;
+    opacity:.65;
+  }
+  .block h2{
+    font-size:1.3rem;
+    margin:2px 0 18px;
+  }
+  .block.brown h2{color:var(--cream-on-brown);}
+  .block.lavender h2{color:var(--brown-deep);}
+
+  ul.tasklist{list-style:none;margin:0;padding:0;}
+  ul.tasklist li{
+    padding:15px 0;
+    border-top:1px solid rgba(0,0,0,.08);
+    display:flex;
+    gap:13px;
+    align-items:flex-start;
+  }
+  .block.brown ul.tasklist li{border-top:1px solid rgba(255,255,255,.12);}
+  ul.tasklist li:first-child{border-top:none;}
+  ul.tasklist .chip{
+    flex:none;
+    font-size:.66rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    padding:4px 10px;
+    border-radius:999px;
+    margin-top:2px;
+    white-space:nowrap;
+    background:var(--panel);
+    color:var(--ink);
+  }
+  .block.brown .chip{background:var(--blue);color:var(--blue-ink);}
+  .block.lavender .chip{background:#ffffff;color:var(--brown-deep);}
+  ul.tasklist .body{flex:1;}
+  ul.tasklist .body p{margin:0;line-height:1.55;font-size:.94rem;}
+  ul.tasklist .body .who{
+    display:block;
+    margin-top:6px;
+    font-size:.78rem;
+    opacity:.75;
+    font-weight:500;
+  }
+
+  /* ---- Checklist (cream panel) ---- */
+  section.checklist{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:26px;
+    box-shadow:var(--shadow);
+    margin:0 20px 20px;
+    padding:26px 26px 10px;
+  }
+  section.checklist > .heading{
+    margin-bottom:6px;
+  }
+  section.checklist > .heading h2{font-size:1.3rem;margin:2px 0 4px;}
+  .checklist-sub{font-size:.86rem;color:var(--muted);margin-bottom:18px;}
+
+  .phase{margin-bottom:22px;}
+  .phase-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .phase-num{
+    width:24px;height:24px;border-radius:50%;
+    background:var(--blue);color:var(--blue-ink);
+    font-size:.76rem;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    flex:none;
+  }
+  .phase-title{font-weight:700;font-size:.98rem;}
+  .phase-count{
+    margin-left:auto;
+    font-size:.76rem;
+    color:var(--muted);
+    font-weight:600;
+    font-variant-numeric:tabular-nums;
+  }
+  ul.checkrows{list-style:none;margin:0 0 0 34px;padding:0;}
+  ul.checkrows li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:7px 0;
+    font-size:.92rem;
+    line-height:1.5;
+  }
+  .box{
+    flex:none;
+    width:17px;height:17px;
+    border-radius:5px;
+    border:2px solid var(--blue);
+    margin-top:3px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  li.done .box{background:var(--blue);}
+  li.done .box::after{
+    content:"";
+    width:8px;height:5px;
+    border-left:2px solid var(--blue-ink);
+    border-bottom:2px solid var(--blue-ink);
+    transform:rotate(-45deg) translate(0,-1px);
+  }
+  li.done span.txt{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line);}
+  li:not(.done) span.txt{color:var(--ink);}
+
+
+  /* ---- Numbers panel ---- */
+  section.numbers{
+    background:var(--panel);
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-radius:26px;
+    box-shadow:var(--shadow);
+    margin:0 20px 20px;
+    padding:26px 26px 22px;
+  }
+  section.numbers .eyebrow{
+    font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--muted);
+  }
+  section.numbers h2{font-size:1.3rem;margin:2px 0 6px;}
+  section.numbers .sub{font-size:.86rem;color:var(--muted);margin:0 0 18px;line-height:1.5;}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px;}
+  @media (min-width:560px){.stats{grid-template-columns:repeat(4,1fr);}}
+  .stat{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:14px 14px 12px;
+  }
+  .stat .num{font-family:"Baloo 2","Poppins",sans-serif;font-weight:800;font-size:1.55rem;line-height:1.1;color:var(--ink);}
+  .stat .lab{font-size:.74rem;color:var(--muted);font-weight:600;margin-top:4px;line-height:1.35;}
+  section.numbers ul.notes{list-style:none;margin:0;padding:0;}
+  section.numbers ul.notes li{
+    padding:10px 0;border-top:1px solid var(--line);font-size:.92rem;line-height:1.55;color:var(--ink);
+  }
+  section.numbers ul.notes li:first-child{border-top:none;}
+
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:.8rem;
+    padding:8px 20px 0;
+    font-weight:500;
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+
+<div class="marquee">
+  <span>SIGNEE &middot; UPDATE &middot; SIGNEE &middot; UPDATE &middot; SIGNEE &middot; UPDATE &middot; SIGNEE &middot; UPDATE &middot;</span>
+</div>
+
+<main>
+
+  <header>
+    <div class="brandrow">
+      <div class="mark">S</div>
+      <div>
+        <div class="wordmark">Signee</div>
+        <div class="period">Update &middot; October 1&ndash;25, 2026</div>
+      </div>
+    </div>
+    <div class="statusrow">
+      <span class="pill">Ads are live</span>
+      <span class="pill">Alpha Lewis Signs</span>
+    </div>
+  </header>
+
+  <div class="block lavender">
+    <div class="block-inner">
+      <div class="eyebrow">October 1&ndash;25</div>
+      <h2>What I did</h2>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Finished and tested purchase tracking. Nic placed a real A$259 test order on October 6, and it showed up in Google Analytics as a purchase, so I know a sale will be recorded when one happens. Thank you Nic.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Built and launched the Google search ads on October 7. There are 8 groups of ads (illuminated signs, A-frames, open and closed signs, cafes, retail and salons, wall and hanging signs, hotels and general business), each with its own ad wording, search phrases, sitelinks and callouts.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Fixed a slow start. In the first days the ads were barely being shown, which is common for a brand new account that has no history with Google. On October 8 I changed the bidding to focus on clicks, with a limit on what I will pay for one, so the ads started showing properly.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Widened and tightened the searches. I added 38 more search phrases on October 8, and kept adding searches to the &ldquo;do not show for&rdquo; list (banners, hire, fence signs, neon, digital signs, bollards and similar), which now has 79. This keeps the budget on people looking for the signs you actually sell.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Sent visitors to a better page. The general business ad now lands on the retail store signage page instead of the home page. Before the change, 45 of 113 clicks were landing on the home page.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Put your prices in the ads. Each group now has headlines that show a real sign and its price with your logo (for example the Henry open and closed sign with your logo at A$138, and the Mabel A-frame with your logo at A$328).</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Added tracking that shows where visitors stop between looking at a sign and checking out, and tested it on a computer and an iPhone. Before this I could only see visits and purchases, not what happens in between.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Got Google Shopping ready. I built the product list and wrote a step by step guide for Google Merchant Center. Kim set up the account on October 21 and added me as an administrator, and I linked it to Google Ads the same day. Thank you Kim. All 10 signs are in.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Got the refund policy live on the website on October 23, using the wording you both approved. Google needs it before products can be shown in Shopping, and it also gives buyers more confidence. Thank you Nic and Kim.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Done</span>
+          <div class="body">
+            <p>Started Google&rsquo;s advertiser verification, which Google now asks for before it will keep showing ads. Kim approved the business details on October 21, and I submitted them on October 23 under Alpha Lewis Signs Pty. Ltd. The deadline is November 18.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="numbers">
+    <div class="eyebrow">The ads</div>
+    <h2>How the ads did</h2>
+    <p class="sub">Wednesday October 7, when the ads went live, to Sunday October 25. &ldquo;Impressions&rdquo; is how many times an ad was shown. &ldquo;Clicks&rdquo; is how many people visited your site from an ad.</p>
+    <div class="stats">
+      <div class="stat"><div class="num">4,484</div><div class="lab">Impressions</div></div>
+      <div class="stat"><div class="num">337</div><div class="lab">Clicks to your site</div></div>
+      <div class="stat"><div class="num">A$810</div><div class="lab">Spent</div></div>
+      <div class="stat"><div class="num">A$2.40</div><div class="lab">Average cost per click</div></div>
+    </div>
+    <ul class="notes">
+      <li>About 7.5 in every 100 people who saw an ad clicked it, which is a healthy rate for this type of ad.</li>
+      <li>295 of the 337 clicks (88%) came from phones, so how the site looks and works on a phone matters most.</li>
+      <li>Clicks by week: 91 clicks (A$252) from October 7 to 11, 127 clicks (A$291) from October 12 to 18, and 119 clicks (A$267) from October 19 to 25.</li>
+      <li>No online sales from the ads yet. There have been no orders in Shopify since Nic&rsquo;s test on October 6, so nothing is being missed by the tracking. People are visiting, but from the tracking I added, only a small share go on to open an individual sign. That is why I am focusing on the sign pages next.</li>
+    </ul>
+  </section>
+
+  <div class="block brown">
+    <div class="block-inner">
+      <div class="eyebrow">Blocking</div>
+      <h2>Waiting on you</h2>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">Needed</span>
+          <div class="body">
+            <p>Nic and Kim: a yes or no on four small changes I would like to make to the sign pages, which I think are the most likely reason visitors are not buying yet. (1) Add &ldquo;Prices include Goods and Services Tax&rdquo; next to the price. (2) Add a short returns line near Add to cart, linking to the refund policy that is now live. (3) The real dispatch times for each sign. (4) Any real customer reviews I can show. I can make the first two myself as soon as you say yes.</p>
+            <span class="who">From: Nic and Kim, first asked October 20</span>
+          </div>
+        </li>
+        <li>
+          <span class="chip">Needed</span>
+          <div class="body">
+            <p>Kim or Nic: add a backup payment method to the Google Ads account before November 1, so the ads do not stop if the main card has a problem. It has to be done from your login: Billing, then Settings, then Payment methods.</p>
+            <span class="who">From: Kim or Nic, due before November 1</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block lavender">
+    <div class="block-inner">
+      <div class="eyebrow">Coming up</div>
+      <h2>Next up</h2>
+      <ul class="tasklist">
+        <li>
+          <span class="chip">1</span>
+          <div class="body">
+            <p>Start reading how Google Shopping is doing now that it has run for a few days, and report back with real numbers.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">2</span>
+          <div class="body">
+            <p>Make the sign page changes as soon as you approve them, then watch whether more visitors open a sign and add it to the cart.</p>
+          </div>
+        </li>
+        <li>
+          <span class="chip">3</span>
+          <div class="body">
+            <p>Keep checking which groups of ads earn their spend and which do not, and move the budget towards the ones that do.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="checklist">
+    <div class="heading">
+      <div class="eyebrow">Ground up</div>
+      <h2>The full setup checklist</h2>
+    </div>
+    <p class="checklist-sub">Everything between here and campaigns actually running, so you can see the whole road, not just this period&rsquo;s slice.</p>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-num">1</span>
+        <span class="phase-title">Research</span>
+        <span class="phase-count">5/5</span>
+      </div>
+      <ul class="checkrows">
+        <li class="done"><span class="box"></span><span class="txt">Competitor research</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Pre-launch website audit</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Confirmed no tracking was live before we started</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Confirmed signeesigns.com.au is the final site</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Re-checked current pricing across all products</span></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-num">2</span>
+        <span class="phase-title">Account &amp; Access</span>
+        <span class="phase-count">5/5</span>
+      </div>
+      <ul class="checkrows">
+        <li class="done"><span class="box"></span><span class="txt">Google Ads account created and billing set up</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Account settings confirmed (Australia, Australian dollars)</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Shopify access for tracking, checkout and customer events</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Connected the account to my reporting tools</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Advertiser verification details submitted to Google</span></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-num">3</span>
+        <span class="phase-title">Tracking Setup</span>
+        <span class="phase-count">5/6</span>
+      </div>
+      <ul class="checkrows">
+        <li class="done"><span class="box"></span><span class="txt">Create the analytics property (Google Analytics)</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Build the tag manager container and install it on the site</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Set up purchase tracking and connect it to Google Ads</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Test with a real order before trusting the numbers</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Add tracking for where visitors drop off before checkout</span></li>
+        <li><span class="box"></span><span class="txt">Verify the site with Google Search Console</span></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-num">4</span>
+        <span class="phase-title">Campaign Build</span>
+        <span class="phase-count">8/9</span>
+      </div>
+      <ul class="checkrows">
+        <li class="done"><span class="box"></span><span class="txt">Decide the campaign structure</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Build the ad groups</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Write the ad copy using verified pricing</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Build the negative keyword list</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Add sitelinks and callouts</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Set budget and bidding</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Prepare the product list for Shopping</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Create the Merchant Center account</span></li>
+        <li><span class="box"></span><span class="txt">Build the Shopping campaign</span></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-head">
+        <span class="phase-num">5</span>
+        <span class="phase-title">Launch &amp; Monitor</span>
+        <span class="phase-count">4/5</span>
+      </div>
+      <ul class="checkrows">
+        <li class="done"><span class="box"></span><span class="txt">Final check before going live</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Launch</span></li>
+        <li class="done"><span class="box"></span><span class="txt">First-week monitoring check</span></li>
+        <li class="done"><span class="box"></span><span class="txt">Move to full performance reporting</span></li>
+        <li><span class="box"></span><span class="txt">First online sale from the ads</span></li>
+      </ul>
+    </div>
+
+  </section>
+
+  <footer>Prepared by Josette</footer>
+
+</main>
