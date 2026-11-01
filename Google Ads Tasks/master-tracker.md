@@ -157,6 +157,8 @@
 
 ## Completed
 
+- **Nov 2 2026: 4 phrase negatives ADDED by Josette on Signee Search AU, verified via API:** metal parking signs, property entrance signs, plastic fence signs, mirror a frame sign. Three were already covered by broader existing negatives (mirror, fence, parking sign), so harmless but redundant. Negative keyword list now 91 to 92 rows (not the 79 first estimated).
+
 - **Nov 2 2026: first real order and Search Console checked (Josette's screenshots).** **Order #1009 (30 Oct, 1:04 pm): 2 x Mini Flossy (White), A$318, paid via Shop Pay, store pickup, Nic sent the ready for pickup email, payout A$312.29 due 10 Nov.** GA4 had it as google / organic, so NOT an ad sale. **Shop Pay checkouts DO run the purchase pixel (open note closed).** **Search Console (jddbartolome): `/sitemap.xml` Success, last read Oct 27, 31 discovered pages; `sitemap_agentic_discovery.xml` Success, 1 page; four old 21 Sep entries (`sitemap_collections_1.xml`, `sitemap_pages_1.xml`, `sitemap_products`, `sitemap_products_1.xml`) show Couldn't fetch, harmless, can be removed.** Fixed the stale CID 715-970-4117 reference in CLAUDE.md and the signee-startup skill (now 966-837-5188).
 
 - **Nov 2 2026: Signee Ads and GA4 tokens RENEWED and verified** (both saved files changed, both return 200, live Ads query returned 2 enabled campaigns). Dated .bak-20261102 backups kept. Next renewal about Nov 9. Note: `python` is not on PATH; run the auth scripts with the Google Ads MCP venv python3 and `-u`, output to a file.
