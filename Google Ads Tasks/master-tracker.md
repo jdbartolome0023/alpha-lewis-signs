@@ -157,6 +157,8 @@
 
 ## Completed
 
+- **Nov 2 2026: DROPPED (Josette): pop-up delay and dispatch times on product pages.** Nic's Oct 30 answers are otherwise closed (no GST line, no returns line, no reviews yet). Product page confidence thread is closed; focus moves to ad and landing page quality. Still open: Monday 9 am WhatsApp items (budget split message, second Admin on Google Ads), brand bidding decision (recommend stay blocked), Walter white-background image, first ad-driven sale attribution check, dead account cancellations, MCC Admin removal, next token renewal about Nov 9.
+
 - **Nov 2 2026: order #1009 confirmed ORGANIC, not an ad sale.** GA4 session: Organic Search, google / organic, Google Ads campaign (not set), landing page /collections/all, first user source direct. Google Ads shows 0 conversions of any kind Oct 28 to Nov 1. **Pop-up delay PARKED (Josette, Nov 2): Klaviyo runs it (homepage loads Klaviyo on-site script, company id WHH3MQ), Josette has no Klaviyo login and does not want access.** If wanted later, Nic or Kim would set the delay in Klaviyo (Sign-up forms, the 10% popup, Behavior, time delay), or we drop it. Dispatch times on product pages still undecided.
 
 - **Nov 2 2026: 4 phrase negatives ADDED by Josette on Signee Search AU, verified via API:** metal parking signs, property entrance signs, plastic fence signs, mirror a frame sign. Three were already covered by broader existing negatives (mirror, fence, parking sign), so harmless but redundant. Negative keyword list now 91 to 92 rows (not the 79 first estimated).
