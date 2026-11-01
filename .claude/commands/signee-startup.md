@@ -32,7 +32,7 @@ Do not report a gap or an "all clear" without checking mail first.
 ## Step 4: Verify Google Ads account state directly (once Kim/Nic report billing is done)
 
 If the tracker's "Full Setup Checklist" (all phases) section shows billing as still pending, but Gmail suggests Kim/Nic have acted, check the account directly:
-- Admin > Account settings on CID 715-970-4117 - confirm Time zone shows an Australian zone (not Philippine Standard Time) and currency is AUD
+- Admin > Account settings on CID 966-837-5188 - confirm Time zone shows an Australian zone (not Philippine Standard Time) and currency is AUD
 - Do not trust wizard-screen previews - only Admin > Account settings is authoritative (see "Lessons learned" in Google Ads Tasks/master-tracker.md for why)
 
 ## Step 5: Surface what needs attention

@@ -4,7 +4,7 @@
 
 ### Google Ads
 - **MCC (manager):** JDD Bartolome, CID 989-282-6805, login jddbartolome@gmail.com
-- **Client account:** Signee, CID 715-970-4117
+- **Client account:** Signee, CID 966-837-5188 (created by Kim, direct Admin access, not linked to the manager account; 715-970-4117 was discarded Sep 21 2026)
 - **Website:** https://signeesigns.com.au/ (Shopify) - this is the one to build campaigns against
 - **Do not confuse with:** https://alphalewissigns.com.au/ - separate corporate/B2B site, not for Ads
 
