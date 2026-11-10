@@ -299,6 +299,11 @@
   table.cmp td.small{font-size:.76rem;line-height:1.4;font-weight:500;color:var(--muted);}
   table.cmp tr.sub td{font-size:.76rem;color:var(--muted);}
   .stat .vs{font-size:.72rem;color:var(--muted);margin-top:6px;line-height:1.35;font-weight:500;}
+  .stat .vs .up{color:#2e7d32;}
+  .stat .vs .down{color:#c62828;}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .stat .vs .up{color:#6fcf76;}:root:not([data-theme="light"]) .stat .vs .down{color:#ff7b72;}}
+  :root[data-theme="dark"] .stat .vs .up{color:#6fcf76;}
+  :root[data-theme="dark"] .stat .vs .down{color:#ff7b72;}
   .stat .vs b{color:var(--ink);font-weight:700;}
   .stats.six{grid-template-columns:repeat(2,1fr);}
   @media (min-width:560px){.stats.six{grid-template-columns:repeat(3,1fr);}}
@@ -333,12 +338,12 @@
     <h2>The week at a glance</h2>
     <p class="sub">Monday November 9 and Tuesday November 10, the two full days so far this week, for the search ads and Google Shopping together. Each box compares them with the same two days last week (Monday November 2 and Tuesday November 3).</p>
     <div class="stats six">
-      <div class="stat"><div class="num">3,890</div><div class="lab">Impressions (times an ad was shown)</div><div class="vs"><b>&#9650; 162%</b> from 1,486</div></div>
-      <div class="stat"><div class="num">38</div><div class="lab">Clicks to your site</div><div class="vs"><b>&#9650; 15%</b> from 33</div></div>
-      <div class="stat"><div class="num">A$65</div><div class="lab">Spent</div><div class="vs"><b>&#9650; 6%</b> from A$62</div></div>
-      <div class="stat"><div class="num">A$1.71</div><div class="lab">Average cost per click</div><div class="vs"><b>&#9660; 9%</b> from A$1.87 (cheaper)</div></div>
-      <div class="stat"><div class="num">35</div><div class="lab">Visits from the ads</div><div class="vs"><b>&#9650; 25%</b> from 28</div></div>
-      <div class="stat"><div class="num">1 min 46 s</div><div class="lab">Average time on the site</div><div class="vs"><b>&#9650; 152%</b> from 42 s</div></div>
+      <div class="stat"><div class="num">3,890</div><div class="lab">Impressions (times an ad was shown)</div><div class="vs"><b><span class="up">&#9650;</span> 162%</b> from 1,486</div></div>
+      <div class="stat"><div class="num">38</div><div class="lab">Clicks to your site</div><div class="vs"><b><span class="up">&#9650;</span> 15%</b> from 33</div></div>
+      <div class="stat"><div class="num">A$65</div><div class="lab">Spent</div><div class="vs"><b><span class="up">&#9650;</span> 6%</b> from A$62</div></div>
+      <div class="stat"><div class="num">A$1.71</div><div class="lab">Average cost per click</div><div class="vs"><b><span class="down">&#9660;</span> 9%</b> from A$1.87 (cheaper)</div></div>
+      <div class="stat"><div class="num">35</div><div class="lab">Visits from the ads</div><div class="vs"><b><span class="up">&#9650;</span> 25%</b> from 28</div></div>
+      <div class="stat"><div class="num">1 min 46 s</div><div class="lab">Average time on the site</div><div class="vs"><b><span class="up">&#9650;</span> 152%</b> from 42 s</div></div>
     </div>
     <ul class="notes">
       <li>Spending is steady at about A$32 a day, which is the new daily budget of A$16 for the search ads and A$16 for Google Shopping. A click on a search ad cost about A$2.10 and a click on a Shopping ad about A$1.43.</li>
