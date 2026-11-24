@@ -6,7 +6,7 @@
 // Changes vs the version live before Oct 19 2026:
 // - Sends session_id (from the _ga_ cookie) so GA4 ties the purchase to the session that carried the ad click.
 // - Adds engagement_time_msec.
-// - Adds gclid (from the _gcl_aw cookie) as a diagnostic custom parameter.
+// - Adds the Google Ads click ID (from the _gcl_aw cookie) as custom parameter ads_click_id (was gclid until Nov 24 2026).
 // - item_id now uses product id, matching the funnel pixel.
 // - Removed the pixel_checkout_fired / pixel_purchase_sent debug pings (each created a junk random user).
 
@@ -71,7 +71,7 @@ analytics.subscribe('checkout_completed', async (event) => {
       }))
     };
     if (sessionId) params.session_id = sessionId;
-    if (gclid) params.gclid = gclid;
+    if (gclid) params.ads_click_id = gclid; // renamed Nov 24 2026: GA4 reserves the name "gclid" for custom dimensions
 
     browser.sendBeacon(ENDPOINT, JSON.stringify({
       client_id: clientId,
