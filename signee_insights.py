@@ -139,6 +139,32 @@ def ads_section():
         m = r.metrics
         print(f"{r.search_term_view.search_term[:45]:<45} clicks {m.clicks:>3.0f} cost {money(m.cost_micros):>8} conv {m.conversions:.1f}")
 
+    # Google keeps creating its own sitelinks, callouts and snippets even with the
+    # account-level Dynamic switches Off (found 25 Nov 2026). Report any that exist; this
+    # script never removes anything. Expect 0.
+    heading("Automatically created assets (expect 0; Google makes these itself)")
+    total = 0
+    for level, table, name_field in (
+        ("ad group", "ad_group_asset", "ad_group.name"),
+        ("campaign", "campaign_asset", "campaign.name"),
+    ):
+        rows = run(f"""
+            SELECT {name_field}, {table}.field_type, {table}.status, asset.id,
+                   asset.sitelink_asset.link_text, asset.final_urls, metrics.impressions
+            FROM {table}
+            WHERE {table}.source = 'AUTOMATICALLY_CREATED' AND {table}.status != 'REMOVED'
+        """)
+        total += len(rows)
+        for r in rows:
+            link = getattr(r, table)
+            owner = r.ad_group.name if level == "ad group" else r.campaign.name
+            urls = list(r.asset.final_urls)
+            print(f"  {level}: {owner} | {link.field_type.name} | asset {r.asset.id} | "
+                  f"{r.asset.sitelink_asset.link_text or '-'} | {urls[0] if urls else '-'} | "
+                  f"impressions {r.metrics.impressions:.0f}")
+    print(f"  Total automatically created and live: {total}"
+          + ("  <- ask Claude to remove these (validate only first)" if total else ""))
+
 
 def ga4_section():
     from google.analytics.data_v1beta import BetaAnalyticsDataClient
